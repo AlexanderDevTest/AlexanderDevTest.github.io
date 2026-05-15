@@ -17,7 +17,6 @@
       --muted: #3d3b36;
       --muted2: #6b6760;
       --accent: #1a3a5c;
-      --accent-mid: #2455884d;
       --accent-light: #edf2f8;
       --accent-border: #b8cfe8;
       --green: #1a5c38;
@@ -28,6 +27,7 @@
       --red: #991b1b;
       --red-light: #fef2f2;
       --red-border: #fecaca;
+      --resume-green: #4a6741;
     }
 
     html { scroll-behavior: smooth; }
@@ -40,7 +40,7 @@
       line-height: 1.65;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: sticky; top: 0; z-index: 200;
       background: rgba(244,243,239,0.94);
@@ -51,26 +51,20 @@
       height: 62px;
     }
     .nav-brand { display: flex; flex-direction: column; line-height: 1.15; }
-    .nav-brand-name {
-      font-family: 'Lora', serif;
-      font-size: 1.05rem; color: var(--text); letter-spacing: 0.01em;
-    }
-    .nav-brand-sub {
-      font-size: 0.62rem; color: var(--muted); font-weight: 500;
-      letter-spacing: 0.1em; text-transform: uppercase;
-    }
+    .nav-brand-name { font-family: 'Lora', serif; font-size: 1.05rem; color: var(--text); }
+    .nav-brand-sub { font-size: 0.62rem; color: var(--muted2); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
     .nav-links { display: flex; gap: 0.1rem; list-style: none; }
     .nav-links a {
       font-size: 0.78rem; font-weight: 500; color: var(--muted);
       text-decoration: none; padding: 0.38rem 0.85rem; border-radius: 6px;
-      transition: color 0.15s, background 0.15s; letter-spacing: 0.02em;
+      transition: color 0.15s, background 0.15s;
     }
     .nav-links a:hover { color: var(--accent); background: var(--accent-light); }
 
-    /* ── LAYOUT ── */
+    /* LAYOUT */
     .container { max-width: 900px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
 
-    /* ── CARD ── */
+    /* CARD */
     .card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -79,44 +73,35 @@
       margin-bottom: 1.25rem;
       box-shadow: 0 1px 4px rgba(0,0,0,0.04), 0 6px 20px rgba(0,0,0,0.04);
     }
-    .card-eyebrow {
-      font-size: 0.63rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.2em; color: var(--accent); margin-bottom: 0.3rem;
-    }
+    .card-eyebrow { font-size: 0.63rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 0.3rem; }
     .card-title {
       font-family: 'Lora', serif;
       font-size: 1.65rem; color: var(--text);
       margin-bottom: 1.75rem; padding-bottom: 1rem;
       border-bottom: 1px solid var(--border);
-      letter-spacing: -0.01em;
     }
 
-    /* ── HOME ── */
+    /* HOME */
     .hero { display: flex; gap: 2.5rem; align-items: center; }
     .hero-photo {
       width: 118px; height: 148px; border-radius: 12px;
       border: 1px solid var(--border); flex-shrink: 0; overflow: hidden;
-      background: var(--surface);
-      box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+      background: var(--surface); box-shadow: 0 4px 18px rgba(0,0,0,0.1);
     }
     .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .hero-info h1 {
-      font-family: 'Lora', serif;
-      font-size: 2.1rem; letter-spacing: -0.02em; margin-bottom: 0.4rem; line-height: 1.2;
-    }
+    .hero-info h1 { font-family: 'Lora', serif; font-size: 2.1rem; letter-spacing: -0.02em; margin-bottom: 0.4rem; line-height: 1.2; }
     .hero-role {
-      display: inline-flex; align-items: center; gap: 0.4rem;
+      display: inline-flex; align-items: center;
       font-size: 0.76rem; font-weight: 600; color: var(--accent);
       background: var(--accent-light); border: 1px solid var(--accent-border);
       padding: 0.25rem 0.85rem; border-radius: 20px; margin-bottom: 1.2rem;
-      letter-spacing: 0.03em;
     }
     .hero-meta { display: flex; flex-direction: column; gap: 0.35rem; }
     .hero-meta-item { display: flex; gap: 0.65rem; font-size: 0.82rem; align-items: baseline; }
-    .hero-meta-item dt { color: var(--muted); font-weight: 500; min-width: 60px; flex-shrink: 0; }
-    .hero-meta-item dd { color: var(--text); font-weight: 400; }
+    .hero-meta-item dt { color: var(--muted2); font-weight: 500; min-width: 60px; flex-shrink: 0; }
+    .hero-meta-item dd { color: var(--text); }
 
-    /* ── ABOUT ── */
+    /* ABOUT */
     .about-intro {
       font-size: 0.91rem; color: var(--muted); line-height: 1.85;
       margin-bottom: 1.75rem; font-style: italic;
@@ -124,31 +109,18 @@
     }
     .block-label { font-size: 0.79rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; }
     .skill-group { margin-bottom: 1.1rem; }
-    .skill-group-label {
-      font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.14em; color: var(--muted2); margin-bottom: 0.5rem;
-    }
+    .skill-group-label { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted2); margin-bottom: 0.5rem; }
     .pill-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .pill {
-      font-size: 0.73rem; font-weight: 500; padding: 0.22rem 0.8rem;
-      background: var(--accent-light); color: var(--accent);
-      border: 1px solid var(--accent-border); border-radius: 20px;
-    }
-    .pill-green {
-      background: var(--green-light); color: var(--green);
-      border-color: var(--green-border);
-    }
+    .pill { font-size: 0.73rem; font-weight: 500; padding: 0.22rem 0.8rem; background: var(--accent-light); color: var(--accent); border: 1px solid var(--accent-border); border-radius: 20px; }
+    .pill-green { background: var(--green-light); color: var(--green); border-color: var(--green-border); }
     .sep { border: none; border-top: 1px solid var(--border); margin: 1.75rem 0; }
 
-    /* ── RESUME SECTION ── */
+    /* RESUME SECTION HEADER */
     .resume-section-header {
       display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
-    .resume-section-label {
-      font-size: 0.79rem; font-weight: 700; color: var(--text);
-      display: flex; align-items: center; gap: 0.5rem;
-    }
+    .resume-section-label { font-size: 0.79rem; font-weight: 700; color: var(--text); }
     .resume-download-btn {
       display: inline-flex; align-items: center; gap: 0.4rem;
       font-size: 0.75rem; font-weight: 600; padding: 0.4rem 1rem;
@@ -158,13 +130,12 @@
     }
     .resume-download-btn:hover { background: #122b45; }
 
-    /* Resume document */
+    /* RESUME DOC WRAPPER */
     .resume-doc {
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
-      background: var(--white);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
     }
     .resume-doc-bar {
       background: #f0ede8;
@@ -172,110 +143,97 @@
       padding: 0.65rem 1.1rem;
       display: flex; align-items: center; gap: 0.45rem;
     }
-    .doc-dot {
-      width: 11px; height: 11px; border-radius: 50%;
-    }
+    .doc-dot { width: 11px; height: 11px; border-radius: 50%; }
     .doc-dot-r { background: #ef4444; }
     .doc-dot-y { background: #f59e0b; }
     .doc-dot-g { background: #22c55e; }
-    .doc-bar-name {
-      margin-left: 0.5rem;
-      font-size: 0.74rem; font-weight: 600; color: var(--muted);
-    }
+    .doc-bar-name { margin-left: 0.5rem; font-size: 0.74rem; font-weight: 600; color: var(--muted2); }
 
-    .resume-content {
-      padding: 2.5rem 3rem;
-      font-family: 'Outfit', sans-serif;
-    }
+    /* RESUME CONTENT */
+    .resume-content { font-family: 'Outfit', sans-serif; }
 
-    /* Resume header */
+    /* Green header bar */
+    .rv-header-bar {
+      background: var(--resume-green);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.4rem 2rem;
+    }
+    .rv-header-left { flex: 1; }
     .rv-name {
       font-family: 'Lora', serif;
-      font-size: 1.9rem; font-weight: 700;
-      color: var(--text); letter-spacing: -0.02em;
-      margin-bottom: 0.15rem;
+      font-size: 2rem; font-weight: 700; color: white;
+      letter-spacing: -0.01em; margin-bottom: 0.4rem; line-height: 1.1;
     }
-    .rv-title {
-      font-size: 0.85rem; color: var(--muted); font-weight: 400;
-      margin-bottom: 1rem; letter-spacing: 0.02em;
+    .rv-header-contact { font-size: 0.8rem; color: rgba(255,255,255,0.88); line-height: 1.75; }
+    .rv-header-photo {
+      width: 88px; height: 108px; border-radius: 6px;
+      overflow: hidden; flex-shrink: 0; margin-left: 1.5rem;
+      border: 2px solid rgba(255,255,255,0.35);
     }
-    .rv-contacts {
-      display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem;
-      font-size: 0.78rem; color: var(--muted); margin-bottom: 1.5rem;
-      padding-bottom: 1.5rem; border-bottom: 2px solid var(--text);
-    }
-    .rv-contacts span { display: flex; align-items: center; gap: 0.35rem; }
+    .rv-header-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    /* Resume sections */
-    .rv-section { margin-bottom: 1.5rem; }
-    .rv-section-title {
-      font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.2em; color: var(--accent);
-      border-bottom: 1.5px solid var(--accent-border);
-      padding-bottom: 0.35rem; margin-bottom: 1rem;
-    }
+    /* Two-column body */
+    .rv-body { display: grid; grid-template-columns: 210px 1fr; }
 
-    /* Skills grid in resume */
-    .rv-skills-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 0.6rem 2rem;
+    .rv-col-left {
+      background: #f0ede8;
+      border-right: 1px solid var(--border);
+      padding: 1.5rem 1.25rem;
     }
-    .rv-skill-row {
-      display: flex; flex-direction: column; gap: 0.15rem;
-    }
-    .rv-skill-cat {
-      font-size: 0.7rem; font-weight: 700; color: var(--text); text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .rv-skill-val { font-size: 0.8rem; color: var(--muted); }
-
-    /* Experience / works */
-    .rv-entry { margin-bottom: 1.1rem; }
-    .rv-entry-header {
-      display: flex; justify-content: space-between; align-items: baseline;
-      margin-bottom: 0.2rem; flex-wrap: wrap; gap: 0.3rem;
-    }
-    .rv-entry-title { font-size: 0.88rem; font-weight: 700; color: var(--text); }
-    .rv-entry-period {
-      font-size: 0.72rem; color: var(--muted); font-weight: 500;
-      background: var(--surface); padding: 0.1rem 0.55rem;
-      border-radius: 4px; border: 1px solid var(--border);
-    }
-    .rv-entry-company { font-size: 0.78rem; color: var(--accent); font-weight: 500; margin-bottom: 0.45rem; }
-    .rv-entry-list { padding-left: 1.1rem; }
-    .rv-entry-list li {
-      font-size: 0.8rem; color: var(--muted); line-height: 1.65;
-      margin-bottom: 0.2rem;
-    }
-    .rv-entry-list li::marker { color: var(--accent); }
-
-    /* Education */
-    .rv-edu-entry { margin-bottom: 0.85rem; }
-    .rv-edu-school { font-size: 0.88rem; font-weight: 700; color: var(--text); }
-    .rv-edu-degree { font-size: 0.8rem; color: var(--muted); }
-    .rv-edu-period { font-size: 0.74rem; color: var(--muted2); }
-
-    /* Declaration */
-    .rv-declaration {
-      font-size: 0.76rem; color: var(--muted); font-style: italic;
-      padding-top: 1.2rem; border-top: 1px solid var(--border);
-      margin-top: 0.5rem; line-height: 1.75;
+    .rv-col-right {
+      background: white;
+      padding: 1.5rem 1.75rem;
     }
 
-    /* ── INTERNSHIP ── */
+    .rv-col-section-title {
+      font-size: 0.7rem; font-weight: 800; color: var(--accent);
+      letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.1rem;
+    }
+    .rv-col-subtitle {
+      font-size: 0.72rem; font-weight: 700; color: var(--text);
+      margin-bottom: 1rem; letter-spacing: 0.03em;
+    }
+    .rv-proj { margin-bottom: 1.3rem; }
+    .rv-proj-title { font-size: 0.82rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
+    .rv-proj-tech { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.35rem; line-height: 1.55; }
+    .rv-proj-list { padding-left: 1rem; }
+    .rv-proj-list li { font-size: 0.79rem; color: var(--text); line-height: 1.65; margin-bottom: 0.15rem; }
+    .rv-proj-list li::marker { color: var(--resume-green); }
+
+    .rv-intro {
+      font-size: 0.84rem; color: var(--text); line-height: 1.8;
+      margin-bottom: 0.6rem;
+    }
+    .rv-objectives {
+      font-size: 0.84rem; color: var(--text); line-height: 1.8;
+      margin-bottom: 1.1rem;
+    }
+
+    .rv-right-section-title {
+      font-size: 0.82rem; font-weight: 700; color: var(--text);
+      margin-bottom: 0.55rem;
+      border-bottom: 1px solid var(--border); padding-bottom: 0.3rem;
+    }
+    .rv-skill-block { margin-bottom: 0.45rem; }
+    .rv-skill-heading { font-size: 0.75rem; font-weight: 700; color: var(--text); letter-spacing: 0.03em; }
+    .rv-skill-list { padding-left: 1rem; margin-top: 0.1rem; }
+    .rv-skill-list li { font-size: 0.79rem; color: var(--text); line-height: 1.6; }
+    .rv-skill-list li::marker { color: var(--resume-green); }
+
+    .rv-edu-line { font-size: 0.81rem; color: var(--text); line-height: 1.75; margin-bottom: 0.55rem; }
+
+    .rv-declaration { font-size: 0.81rem; color: var(--text); line-height: 1.8; margin-top: 1rem; }
+    .rv-signature {
+      font-family: 'Lora', serif; font-style: italic;
+      font-size: 1.45rem; color: var(--text); margin-top: 0.5rem;
+    }
+
+    /* INTERNSHIP */
     .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 1.5rem; }
-    .info-box {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 10px; padding: 1rem 1.15rem;
-    }
-    .info-box-label {
-      font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.14em; color: var(--muted2); margin-bottom: 0.2rem;
-    }
+    .info-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.15rem; }
+    .info-box-label { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted2); margin-bottom: 0.2rem; }
     .info-box-value { font-size: 0.9rem; font-weight: 600; color: var(--text); }
     .field-label { font-size: 0.8rem; font-weight: 700; margin-bottom: 0.6rem; margin-top: 1.25rem; }
-    .field-label:first-of-type { margin-top: 0; }
-
     .address-box {
       display: flex; gap: 0.75rem; align-items: flex-start;
       background: var(--surface); border: 1px solid var(--border);
@@ -285,67 +243,37 @@
     .address-text { font-size: 0.83rem; font-weight: 500; color: var(--text); margin-bottom: 0.3rem; }
     .address-link { font-size: 0.75rem; color: var(--accent); text-decoration: none; }
     .address-link:hover { text-decoration: underline; }
-
     .tasks-list { padding-left: 1.15rem; }
-    .tasks-list li {
-      font-size: 0.84rem; color: var(--muted); margin-bottom: 0.45rem; line-height: 1.65;
-    }
+    .tasks-list li { font-size: 0.84rem; color: var(--text); margin-bottom: 0.45rem; line-height: 1.65; }
     .tasks-list li::marker { color: var(--accent); }
 
-    /* ── WORKS ── */
+    /* WORKS */
     .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
-    .work-card {
-      border: 1px solid var(--border); border-radius: 12px;
-      overflow: hidden; transition: box-shadow 0.2s, transform 0.2s;
-      background: var(--white);
-    }
+    .work-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; background: var(--white); }
     .work-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.1); transform: translateY(-3px); }
-    .work-thumb {
-      height: 155px; background: var(--surface);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.8rem; position: relative; overflow: hidden;
-    }
+    .work-thumb { height: 155px; background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 2.8rem; position: relative; overflow: hidden; }
     .work-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .work-badge {
-      position: absolute; top: 0.6rem; right: 0.6rem;
-      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 4px;
-    }
+    .work-badge { position: absolute; top: 0.6rem; right: 0.6rem; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 4px; }
     .badge-academic { background: var(--accent-light); color: var(--accent); border: 1px solid var(--accent-border); }
     .badge-ojt { background: var(--gold-light); color: var(--gold); border: 1px solid #fde68a; }
     .badge-confidential { background: var(--red-light); color: var(--red); border: 1px solid var(--red-border); }
     .work-body { padding: 1rem 1.15rem; }
-    .work-body h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; letter-spacing: -0.01em; }
+    .work-body h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
     .work-body p { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.65rem; line-height: 1.65; }
     .tag-row { display: flex; flex-wrap: wrap; gap: 0.3rem; }
-    .tag {
-      font-size: 0.64rem; font-weight: 600; padding: 0.15rem 0.55rem;
-      background: var(--surface); color: var(--muted); border: 1px solid var(--border);
-      border-radius: 4px;
-    }
+    .tag { font-size: 0.64rem; font-weight: 600; padding: 0.15rem 0.55rem; background: var(--surface); color: var(--muted); border: 1px solid var(--border); border-radius: 4px; }
 
-    /* ── CONTACT ── */
+    /* CONTACT */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 2rem; }
-    .contact-card {
-      display: flex; gap: 0.9rem; align-items: flex-start;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 10px; padding: 0.9rem 1rem;
-    }
+    .contact-card { display: flex; gap: 0.9rem; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1rem; }
     .contact-icon { font-size: 1.1rem; margin-top: 0.05rem; }
-    .contact-label {
-      font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.14em; color: var(--muted2); margin-bottom: 0.15rem;
-    }
+    .contact-label { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted2); margin-bottom: 0.15rem; }
     .contact-value { font-size: 0.83rem; font-weight: 500; color: var(--text); }
     .contact-value a { color: var(--accent); text-decoration: none; }
     .contact-value a:hover { text-decoration: underline; }
 
-    /* Form */
-    .form-heading {
-      font-family: 'Lora', serif;
-      font-size: 1.1rem; margin-bottom: 1.25rem;
-      padding-top: 1.5rem; border-top: 1px solid var(--border);
-    }
+    /* FORM */
+    .form-heading { font-family: 'Lora', serif; font-size: 1.1rem; margin-bottom: 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 0.85rem; }
     .form-group { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.85rem; }
     label { font-size: 0.74rem; font-weight: 600; color: var(--muted); }
@@ -354,29 +282,22 @@
       font-family: 'Outfit', sans-serif; font-size: 0.84rem; color: var(--text);
       background: var(--surface); transition: border-color 0.15s, box-shadow 0.15s, background 0.15s; outline: none;
     }
-    input:focus, textarea:focus {
-      border-color: var(--accent); box-shadow: 0 0 0 3px rgba(26,58,92,0.1); background: var(--white);
-    }
+    input:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(26,58,92,0.1); background: var(--white); }
     textarea { resize: vertical; min-height: 100px; }
     .submit-btn {
       background: var(--accent); color: white; border: none;
       padding: 0.65rem 1.75rem; font-family: 'Outfit', sans-serif;
       font-size: 0.84rem; font-weight: 700; border-radius: 8px; cursor: pointer;
-      transition: background 0.15s; letter-spacing: 0.02em;
+      transition: background 0.15s;
     }
     .submit-btn:hover { background: #122b45; }
     .form-note { font-size: 0.7rem; color: var(--muted2); margin-top: 0.65rem; }
     .form-note a { color: var(--accent); }
 
-    /* ── FOOTER ── */
-    footer {
-      text-align: center; padding: 1.75rem;
-      font-size: 0.74rem; color: var(--muted2);
-      border-top: 1px solid var(--border); margin-top: 0.5rem;
-      letter-spacing: 0.03em;
-    }
+    /* FOOTER */
+    footer { text-align: center; padding: 1.75rem; font-size: 0.74rem; color: var(--muted2); border-top: 1px solid var(--border); margin-top: 0.5rem; }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 640px) {
       nav { padding: 0 1rem; }
       .nav-links a { font-size: 0.7rem; padding: 0.32rem 0.5rem; }
@@ -384,15 +305,13 @@
       .card { padding: 1.5rem; }
       .hero { flex-direction: column; gap: 1.25rem; }
       .info-grid, .works-grid, .contact-grid, .form-row { grid-template-columns: 1fr; }
-      .resume-content { padding: 1.5rem; }
-      .rv-skills-grid { grid-template-columns: 1fr; }
-      .rv-contacts { gap: 0.3rem 1rem; }
+      .rv-body { grid-template-columns: 1fr; }
+      .rv-col-left { border-right: none; border-bottom: 1px solid var(--border); }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="nav-brand">
       <span class="nav-brand-name">Alexander R. Santos</span>
@@ -430,7 +349,7 @@
       </div>
     </div>
 
-    <!-- ABOUT ME -->
+    <!-- ABOUT -->
     <div class="card" id="about">
       <div class="card-eyebrow">Background &amp; Skills</div>
       <div class="card-title">About Me</div>
@@ -475,7 +394,7 @@
 
       <hr class="sep">
 
-      <!-- RESUME — rendered as styled HTML, no iframe -->
+      <!-- RESUME -->
       <div class="resume-section-header">
         <p class="resume-section-label">📄 Resume / CV</p>
         <a class="resume-download-btn" href="AlexanderResume.pdf" download>⬇ Download PDF</a>
@@ -491,121 +410,84 @@
 
         <div class="resume-content">
 
-          <!-- Header -->
-          <div class="rv-name">Alexander R. Santos</div>
-          <div class="rv-title">BS Information Technology Student · QA Intern</div>
-          <div class="rv-contacts">
-            <span>✉ alexandersantoswb@gmail.com</span>
-            <span>📞 0918 646 2052</span>
-            <span>📍 114 Lagdameo St., Fortune 4 Parada, Valenzuela City</span>
-            <span>🔗 <a href="https://www.linkedin.com/in/santos-alexander-7a4275336/" target="_blank" style="color:var(--accent);text-decoration:none;">LinkedIn Profile</a></span>
-          </div>
-
-          <!-- Objective -->
-          <div class="rv-section">
-            <div class="rv-section-title">Objective</div>
-            <p style="font-size:0.83rem;color:var(--muted);line-height:1.8;">
-              Seeking an internship opportunity where I can apply my skills in software and web development to contribute to real-world projects, expand my technical expertise, and grow as an IT professional.
-            </p>
-          </div>
-
-          <!-- Skills -->
-          <div class="rv-section">
-            <div class="rv-section-title">Technical Skills</div>
-            <div class="rv-skills-grid">
-              <div class="rv-skill-row">
-                <span class="rv-skill-cat">Programming Languages</span>
-                <span class="rv-skill-val">Java, PHP, C#, JavaScript</span>
-              </div>
-              <div class="rv-skill-row">
-                <span class="rv-skill-cat">Frontend Frameworks</span>
-                <span class="rv-skill-val">React Native, React Native Web</span>
-              </div>
-              <div class="rv-skill-row">
-                <span class="rv-skill-cat">Database &amp; Backend</span>
-                <span class="rv-skill-val">Node.js, MongoDB, MySQL</span>
-              </div>
-              <div class="rv-skill-row">
-                <span class="rv-skill-cat">Game Development</span>
-                <span class="rv-skill-val">Unity</span>
-              </div>
-              <div class="rv-skill-row">
-                <span class="rv-skill-cat">Multimedia</span>
-                <span class="rv-skill-val">Adobe Photoshop, Illustrator, Canva, Filmora</span>
-              </div>
-              <div class="rv-skill-row">
-                <span class="rv-skill-cat">QA &amp; Testing</span>
-                <span class="rv-skill-val">Manual Testing, Bug Reporting, Client Reporting</span>
-              </div>
+          <!-- Green header bar matching PDF -->
+          <div class="rv-header-bar">
+            <div class="rv-header-left">
+              <div class="rv-name">Alexander R. Santos</div>
+              <div class="rv-header-contact">114 lagdameo st. Fortune 4 Parada Valenzuela City</div>
+              <div class="rv-header-contact">alexandersantoswb@gmail.com &nbsp;|&nbsp; Cellphone No. 09186462052</div>
+            </div>
+            <div class="rv-header-photo">
+              <img src="img/667814876_4346019189049874_1020999680993296239_n.jpg" alt="Alexander R. Santos" />
             </div>
           </div>
 
-          <!-- Projects / Experience -->
-          <div class="rv-section">
-            <div class="rv-section-title">Projects &amp; Experience</div>
+          <!-- Two-column body matching PDF -->
+          <div class="rv-body">
 
-            <div class="rv-entry">
-              <div class="rv-entry-header">
-                <span class="rv-entry-title">PLV EasePass</span>
-                <span class="rv-entry-period">Academic Project</span>
+            <!-- LEFT: Projects -->
+            <div class="rv-col-left">
+              <div class="rv-col-section-title">PROJECTS</div>
+              <div class="rv-col-subtitle">AS OF MAY 2025</div>
+
+              <div class="rv-proj">
+                <div class="rv-proj-title">PLV EasePass |</div>
+                <div class="rv-proj-tech">ReactNative Web, ReactNative Expo, Javascript, NODE.js, MONGODB</div>
+                <ul class="rv-proj-list">
+                  <li>Designed and developed a qr code based identification system for first year PLV students</li>
+                </ul>
               </div>
-              <div class="rv-entry-company">React Native · Node.js · MongoDB · Expo</div>
-              <ul class="rv-entry-list">
-                <li>Designed and developed a QR code-based identification system for first-year PLV students.</li>
-                <li>Handled student registration and campus gate access management.</li>
-              </ul>
+
+              <div class="rv-proj">
+                <div class="rv-proj-title">HIDDEN AQUABLITZ |</div>
+                <div class="rv-proj-tech">PHP, MySQL, CSS</div>
+                <ul class="rv-proj-list">
+                  <li>Developed a Resort Reservation Website with real-time management for resort owners</li>
+                </ul>
+              </div>
             </div>
 
-            <div class="rv-entry">
-              <div class="rv-entry-header">
-                <span class="rv-entry-title">Hidden Aquablitz</span>
-                <span class="rv-entry-period">Academic Project</span>
-              </div>
-              <div class="rv-entry-company">PHP · MySQL · CSS</div>
-              <ul class="rv-entry-list">
-                <li>Developed a Resort Reservation Website with real-time booking management for resort owners.</li>
-              </ul>
-            </div>
+            <!-- RIGHT: Intro + Skills + Education -->
+            <div class="rv-col-right">
 
-            <div class="rv-entry">
-              <div class="rv-entry-header">
-                <span class="rv-entry-title">QA Intern — Bountiply &amp; Redyoos</span>
-                <span class="rv-entry-period">July 2025 – March 2026</span>
+              <p class="rv-intro">I am Alexander R. Santos and I would like to apply as an intern in your company</p>
+              <p class="rv-objectives"><strong>Objectives:</strong> I am seeking a company where I can use my experience and education to help the company meet and surpass its goals.</p>
+
+              <div class="rv-right-section-title"><em>SKILLS</em></div>
+
+              <div class="rv-skill-block">
+                <div class="rv-skill-heading">PROGRAMMING LANGUAGES</div>
+                <ul class="rv-skill-list"><li>JAVA, PHP, C#, JAVASCRIPT</li></ul>
               </div>
-              <div class="rv-entry-company">Solution's Resource Inc. · Quezon City</div>
-              <ul class="rv-entry-list">
-                <li>Performed manual QA testing on Bountiply and Redyoos web platforms.</li>
-                <li>Documented defects and created structured bug reports for development teams.</li>
-                <li>Prepared client-facing reports summarizing test results and findings.</li>
-                <li>Reported daily progress to supervisor Jojo Michael Go.</li>
-              </ul>
+              <div class="rv-skill-block">
+                <div class="rv-skill-heading">FRONTEND FRAMEWORKS</div>
+                <ul class="rv-skill-list"><li>REACT NATIVE, REACT NATIVE WEB</li></ul>
+              </div>
+              <div class="rv-skill-block">
+                <div class="rv-skill-heading">DATABASE AND BACKEND</div>
+                <ul class="rv-skill-list"><li>NODE.js, MONGODB</li></ul>
+              </div>
+              <div class="rv-skill-block">
+                <div class="rv-skill-heading">GAME DEVELOPMENT</div>
+                <ul class="rv-skill-list"><li>UNITY</li></ul>
+              </div>
+              <div class="rv-skill-block">
+                <div class="rv-skill-heading">MULTIMEDIA</div>
+                <ul class="rv-skill-list"><li>Adobe Photoshop, Adobe Illustrator, Canva, Filmora</li></ul>
+              </div>
+
+              <div class="rv-right-section-title" style="margin-top:1rem;"><em>EDUCATIONAL ATTAINMENT</em></div>
+
+              <p class="rv-edu-line"><strong>College</strong> : Pamantasan ng Lungsod ng Valenzuela<br>Bachelor of Science in Information Technology<br>August 2022-2025 ongoing</p>
+              <p class="rv-edu-line"><strong>Senior Highschool</strong> : Saint Mary's Angels College of Valenzuela 2020-2022 - General Academics Graduate</p>
+              <p class="rv-edu-line"><strong>Highschool</strong>: Parada National High School-Valenzuela City<br>2016-2020 - Graduate</p>
+
+              <p class="rv-declaration">I hereby Certify that the above statement is true and correct to the best of my knowledge and beliefs.</p>
+              <p class="rv-declaration">Sincerely yours,</p>
+              <p class="rv-signature">Alexander R. Santos</p>
+
             </div>
           </div>
-
-          <!-- Education -->
-          <div class="rv-section">
-            <div class="rv-section-title">Educational Attainment</div>
-            <div class="rv-edu-entry">
-              <div class="rv-edu-school">Pamantasan ng Lungsod ng Valenzuela</div>
-              <div class="rv-edu-degree">Bachelor of Science in Information Technology</div>
-              <div class="rv-edu-period">August 2022 – 2026, Ongoing</div>
-            </div>
-            <div class="rv-edu-entry">
-              <div class="rv-edu-school">Saint Mary's Angels College of Valenzuela</div>
-              <div class="rv-edu-degree">Senior High School — General Academics Graduate</div>
-              <div class="rv-edu-period">2020 – 2022</div>
-            </div>
-            <div class="rv-edu-entry">
-              <div class="rv-edu-school">Parada National High School — Valenzuela City</div>
-              <div class="rv-edu-degree">High School Graduate</div>
-              <div class="rv-edu-period">2016 – 2020</div>
-            </div>
-          </div>
-
-          <!-- Declaration -->
-          <p class="rv-declaration">
-            I hereby certify that the above statement is true and correct to the best of my knowledge and beliefs.
-          </p>
 
         </div>
       </div>
@@ -640,9 +522,7 @@
         <div class="address-map-icon">📍</div>
         <div>
           <div class="address-text">Solution's Resource Inc.<br>Quezon City, Metro Manila, Philippines</div>
-          <a class="address-link" href="https://www.google.com/maps/place/Solutions+Resource/@14.6341516,121.0390445,17z" target="_blank">
-            View on Google Maps ↗
-          </a>
+          <a class="address-link" href="https://www.google.com/maps/place/Solutions+Resource/@14.6341516,121.0390445,17z" target="_blank">View on Google Maps ↗</a>
         </div>
       </div>
 
@@ -657,13 +537,11 @@
       </ul>
     </div>
 
-    <!-- SAMPLE WORKS -->
+    <!-- WORKS -->
     <div class="card" id="works">
       <div class="card-eyebrow">Outputs &amp; Deliverables</div>
       <div class="card-title">Sample Works</div>
-      <p style="font-size:0.84rem;color:var(--muted);margin-bottom:1.4rem;">
-        Screenshots and descriptions of tasks completed during the internship and prior academic projects.
-      </p>
+      <p style="font-size:0.84rem;color:var(--muted);margin-bottom:1.4rem;">Screenshots and descriptions of tasks completed during the internship and prior academic projects.</p>
 
       <div class="works-grid">
         <div class="work-card">
@@ -674,9 +552,7 @@
           <div class="work-body">
             <h4>PLV EasePass</h4>
             <p>QR code-based identification system for first-year PLV students. Handles student registration and campus gate access.</p>
-            <div class="tag-row">
-              <span class="tag">React Native</span><span class="tag">Node.js</span><span class="tag">MongoDB</span>
-            </div>
+            <div class="tag-row"><span class="tag">React Native</span><span class="tag">Node.js</span><span class="tag">MongoDB</span></div>
           </div>
         </div>
 
@@ -688,9 +564,7 @@
           <div class="work-body">
             <h4>Hidden Aquablitz</h4>
             <p>Resort reservation website with a real-time booking management dashboard for resort owners.</p>
-            <div class="tag-row">
-              <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">CSS</span>
-            </div>
+            <div class="tag-row"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">CSS</span></div>
           </div>
         </div>
 
@@ -702,9 +576,7 @@
           <div class="work-body">
             <h4>Bountiply</h4>
             <p>Performed QA testing on the Bountiply platform. Details are confidential per company policy.</p>
-            <div class="tag-row">
-              <span class="tag">QA Testing</span><span class="tag">Bug Reporting</span>
-            </div>
+            <div class="tag-row"><span class="tag">QA Testing</span><span class="tag">Bug Reporting</span></div>
           </div>
         </div>
 
@@ -716,9 +588,7 @@
           <div class="work-body">
             <h4>Redyoos</h4>
             <p>Website for a US client focused on reselling pre-owned jewelry with integrated delivery service management.</p>
-            <div class="tag-row">
-              <span class="tag">QA Testing</span><span class="tag">Client Reporting</span>
-            </div>
+            <div class="tag-row"><span class="tag">QA Testing</span><span class="tag">Client Reporting</span></div>
           </div>
         </div>
       </div>
@@ -755,9 +625,7 @@
           <div class="contact-icon">🔗</div>
           <div>
             <div class="contact-label">LinkedIn</div>
-            <div class="contact-value">
-              <a href="https://www.linkedin.com/in/santos-alexander-7a4275336/" target="_blank">View LinkedIn Profile</a>
-            </div>
+            <div class="contact-value"><a href="https://www.linkedin.com/in/santos-alexander-7a4275336/" target="_blank">View LinkedIn Profile</a></div>
           </div>
         </div>
       </div>
@@ -766,11 +634,11 @@
       <div class="form-row">
         <div class="form-group">
           <label for="fname">Full Name</label>
-          <input type="text" id="fname" placeholder="Juan dela Cruz" />
+          <input type="text" id="fname" placeholder="Input" />
         </div>
         <div class="form-group">
           <label for="femail">Email Address</label>
-          <input type="email" id="femail" placeholder="juan@email.com" />
+          <input type="email" id="femail" placeholder="test@email.com" />
         </div>
       </div>
       <div class="form-group">
@@ -782,9 +650,6 @@
         <textarea id="fmessage" placeholder="Your message here..."></textarea>
       </div>
       <button class="submit-btn" onclick="handleSubmit()">Send Message</button>
-      <p class="form-note">
-        To make this form send actual emails, connect it to <a href="https://formspree.io" target="_blank">Formspree.io</a> (free &amp; easy to set up).
-      </p>
     </div>
 
   </div>

@@ -4,121 +4,346 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Alexander R. Santos — OJT Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #f0f2f8; --white: #ffffff; --border: #e2e5ed;
-      --text: #1a1a2e; --muted: #64748b; --accent: #2563eb;
-      --accent-light: #eff6ff; --green: #059669; --green-light: #ecfdf5;
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; }
 
-    nav {
-      position: sticky; top: 0; z-index: 100; background: var(--white);
-      border-bottom: 1px solid var(--border); padding: 0 2.5rem;
-      display: flex; align-items: center; justify-content: space-between; height: 58px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    :root {
+      --bg: #f7f6f3;
+      --white: #ffffff;
+      --surface: #f0ede8;
+      --border: #e4dfd8;
+      --text: #1c1917;
+      --muted: #78716c;
+      --muted2: #a8a29e;
+      --accent: #1d4ed8;
+      --accent-light: #eff6ff;
+      --accent-border: #bfdbfe;
+      --green: #15803d;
+      --green-light: #f0fdf4;
+      --green-border: #bbf7d0;
+      --gold: #b45309;
     }
-    .nav-name { font-weight: 700; font-size: 0.95rem; color: var(--accent); letter-spacing: -0.01em; }
-    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
-    .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--muted); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 6px; transition: all 0.15s; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(247,246,243,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand {
+      display: flex; flex-direction: column; line-height: 1.2;
+    }
+    .nav-brand-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem; color: var(--text); letter-spacing: 0.01em;
+    }
+    .nav-brand-sub {
+      font-size: 0.65rem; color: var(--muted); font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 0.1rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.8rem; font-weight: 500; color: var(--muted);
+      text-decoration: none; padding: 0.4rem 0.85rem; border-radius: 6px;
+      transition: color 0.15s, background 0.15s; letter-spacing: 0.01em;
+    }
     .nav-links a:hover { color: var(--accent); background: var(--accent-light); }
 
-    .container { max-width: 880px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+    /* ── LAYOUT ── */
+    .container { max-width: 900px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
 
-    .section { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 2rem 2.25rem; margin-bottom: 1.25rem; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
-    .section-heading { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 0.3rem; }
-    .section-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; padding-bottom: 0.85rem; border-bottom: 1px solid var(--border); letter-spacing: -0.02em; }
+    /* ── SECTION ── */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.25rem 2.5rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03);
+    }
+    .card-eyebrow {
+      font-size: 0.67rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.16em; color: var(--accent); margin-bottom: 0.25rem;
+    }
+    .card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem; color: var(--text);
+      margin-bottom: 1.5rem; padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: -0.01em;
+    }
 
-    /* HOME */
-    .hero { display: flex; gap: 2rem; align-items: center; }
-    .hero-photo { width: 115px; height: 138px; border-radius: 10px; border: 2px solid var(--border); flex-shrink: 0; overflow: hidden; background: #e8edf5; }
+    /* ── HOME ── */
+    .hero { display: flex; gap: 2.5rem; align-items: center; }
+    .hero-photo {
+      width: 120px; height: 148px; border-radius: 12px;
+      border: 1px solid var(--border); flex-shrink: 0; overflow: hidden;
+      background: var(--surface);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
     .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .hero-info h1 { font-size: 1.65rem; font-weight: 700; margin-bottom: 0.2rem; letter-spacing: -0.03em; }
-    .hero-info .role { font-size: 0.88rem; color: var(--accent); font-weight: 600; margin-bottom: 1rem; display: inline-block; background: var(--accent-light); padding: 0.2rem 0.65rem; border-radius: 20px; border: 1px solid #bfdbfe; }
-    .hero-meta { display: flex; flex-direction: column; gap: 0.3rem; }
-    .hero-meta-item { display: flex; gap: 0.5rem; font-size: 0.83rem; }
-    .hero-meta-item strong { color: var(--muted); font-weight: 600; min-width: 60px; }
+    .hero-info h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem; letter-spacing: -0.02em; margin-bottom: 0.35rem;
+    }
+    .hero-role {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.78rem; font-weight: 600; color: var(--accent);
+      background: var(--accent-light); border: 1px solid var(--accent-border);
+      padding: 0.25rem 0.75rem; border-radius: 20px; margin-bottom: 1.1rem;
+      letter-spacing: 0.02em;
+    }
+    .hero-meta { display: flex; flex-direction: column; gap: 0.35rem; }
+    .hero-meta-item { display: flex; gap: 0.6rem; font-size: 0.82rem; align-items: baseline; }
+    .hero-meta-item dt { color: var(--muted); font-weight: 500; min-width: 58px; flex-shrink: 0; }
+    .hero-meta-item dd { color: var(--text); font-weight: 400; }
 
-    /* ABOUT */
-    .about-intro { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.75; }
-    .skills-label { font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; }
-    .skill-group { margin-bottom: 1rem; }
-    .skill-group-label { font-size: 0.68rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.45rem; }
-    .skill-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .pill { font-size: 0.76rem; padding: 0.22rem 0.7rem; background: var(--accent-light); color: var(--accent); border: 1px solid #bfdbfe; border-radius: 20px; font-weight: 600; }
-    .soft-pill { background: var(--green-light); color: var(--green); border-color: #a7f3d0; }
-    .divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
-    .resume-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.84rem; font-weight: 600; color: var(--white); text-decoration: none; background: var(--accent); padding: 0.5rem 1.15rem; border-radius: 7px; transition: background 0.15s; }
-    .resume-link:hover { background: #1d4ed8; }
+    /* ── ABOUT ── */
+    .about-intro {
+      font-size: 0.9rem; color: var(--muted); line-height: 1.8;
+      margin-bottom: 1.75rem; font-style: italic;
+    }
+    .block-label { font-size: 0.78rem; font-weight: 700; color: var(--text); margin-bottom: 0.9rem; }
+    .skill-group { margin-bottom: 1.1rem; }
+    .skill-group-label {
+      font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted2); margin-bottom: 0.5rem;
+    }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .pill {
+      font-size: 0.74rem; font-weight: 500; padding: 0.22rem 0.75rem;
+      background: var(--accent-light); color: var(--accent);
+      border: 1px solid var(--accent-border); border-radius: 20px;
+    }
+    .pill-green {
+      background: var(--green-light); color: var(--green);
+      border-color: var(--green-border);
+    }
+    .sep { border: none; border-top: 1px solid var(--border); margin: 1.75rem 0; }
 
-    /* INTERNSHIP */
+    /* Resume viewer */
+    .resume-section-label {
+      font-size: 0.78rem; font-weight: 700; color: var(--text); margin-bottom: 0.75rem;
+    }
+    .resume-viewer-wrap {
+      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+      background: var(--surface); margin-bottom: 1rem;
+    }
+    .resume-viewer-bar {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1rem; display: flex; align-items: center;
+      justify-content: space-between;
+    }
+    .resume-viewer-bar-title {
+      font-size: 0.75rem; font-weight: 600; color: var(--muted);
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .resume-viewer-bar-title::before {
+      content: ''; width: 10px; height: 10px; border-radius: 50%;
+      background: #ef4444; box-shadow: 14px 0 0 #f59e0b, 28px 0 0 #22c55e;
+      flex-shrink: 0;
+    }
+    .resume-viewer-bar-actions { display: flex; gap: 0.5rem; }
+    .rv-btn {
+      font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.75rem;
+      border-radius: 6px; cursor: pointer; border: 1px solid var(--border);
+      background: var(--white); color: var(--muted); text-decoration: none;
+      transition: all 0.15s; display: inline-flex; align-items: center; gap: 0.3rem;
+    }
+    .rv-btn:hover { background: var(--surface); color: var(--text); }
+    .rv-btn-primary {
+      background: var(--accent); color: white; border-color: var(--accent);
+    }
+    .rv-btn-primary:hover { background: #1e40af; color: white; }
+
+    iframe.resume-frame {
+      width: 100%; height: 520px; border: none; display: block;
+      background: #fff;
+    }
+    .resume-toggle {
+      font-size: 0.8rem; font-weight: 600; color: var(--accent);
+      background: none; border: none; cursor: pointer; padding: 0;
+      text-decoration: underline; text-underline-offset: 2px;
+    }
+
+    /* ── INTERNSHIP ── */
     .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 1.5rem; }
-    .info-box { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1rem; }
-    .info-box-label { font-size: 0.67rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.25rem; }
+    .info-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1rem 1.1rem;
+    }
+    .info-box-label {
+      font-size: 0.63rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted2); margin-bottom: 0.2rem;
+    }
     .info-box-value { font-size: 0.9rem; font-weight: 600; color: var(--text); }
-    .sub-label { font-size: 0.83rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text); }
+    .field-label { font-size: 0.8rem; font-weight: 700; margin-bottom: 0.5rem; }
     .tasks-list { padding-left: 1.1rem; }
-    .tasks-list li { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.35rem; }
+    .tasks-list li {
+      font-size: 0.84rem; color: var(--muted); margin-bottom: 0.4rem; line-height: 1.6;
+    }
+    .tasks-list li::marker { color: var(--accent); }
 
-    /* WORKS */
-    .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .work-card { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; }
-    .work-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); transform: translateY(-2px); }
-    .work-thumb { height: 150px; background: linear-gradient(135deg, #e8edf5, #dce3f0); display: flex; align-items: center; justify-content: center; font-size: 2.8rem; position: relative; overflow: hidden; }
+    /* ── WORKS ── */
+    .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+    .work-card {
+      border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; transition: box-shadow 0.2s, transform 0.2s;
+      background: var(--white);
+    }
+    .work-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.09); transform: translateY(-3px); }
+    .work-thumb {
+      height: 155px; background: var(--surface);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.8rem; position: relative; overflow: hidden;
+    }
     .work-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .work-thumb-label { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.5); color: white; font-size: 0.63rem; font-weight: 700; padding: 0.3rem 0.6rem; letter-spacing: 0.07em; text-transform: uppercase; }
-    .confidential-badge { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 4px; letter-spacing: 0.05em; text-transform: uppercase; }
-    .work-body { padding: 0.9rem 1rem; }
-    .work-body h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 0.3rem; letter-spacing: -0.01em; }
-    .work-body p { font-size: 0.79rem; color: var(--muted); margin-bottom: 0.6rem; line-height: 1.55; }
-    .work-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
-    .work-tag { font-size: 0.66rem; font-weight: 600; background: #f3f4f6; color: #555; border: 1px solid var(--border); padding: 0.15rem 0.5rem; border-radius: 4px; }
+    .work-badge {
+      position: absolute; top: 0.6rem; right: 0.6rem;
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 4px;
+    }
+    .badge-academic { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+    .badge-ojt { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+    .badge-confidential { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+    .work-body { padding: 1rem 1.1rem; }
+    .work-body h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; letter-spacing: -0.01em; }
+    .work-body p { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.65rem; line-height: 1.6; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+    .tag {
+      font-size: 0.64rem; font-weight: 600; padding: 0.15rem 0.55rem;
+      background: var(--surface); color: var(--muted); border: 1px solid var(--border);
+      border-radius: 4px;
+    }
 
-    /* CONTACT */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.75rem; }
-    .contact-item { display: flex; gap: 0.85rem; align-items: flex-start; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem 1rem; }
-    .contact-icon { font-size: 1.15rem; }
-    .contact-label { font-size: 0.67rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.15rem; }
-    .contact-value { font-size: 0.85rem; font-weight: 500; }
+    /* ── CONTACT ── */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 2rem; }
+    .contact-card {
+      display: flex; gap: 0.9rem; align-items: flex-start;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 0.9rem 1rem;
+    }
+    .contact-icon { font-size: 1.1rem; margin-top: 0.05rem; }
+    .contact-label {
+      font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted2); margin-bottom: 0.15rem;
+    }
+    .contact-value { font-size: 0.83rem; font-weight: 500; color: var(--text); }
     .contact-value a { color: var(--accent); text-decoration: none; }
     .contact-value a:hover { text-decoration: underline; }
 
-    /* FORM */
-    .form-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 1.15rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
-    .form-group { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.75rem; }
-    label { font-size: 0.76rem; font-weight: 600; color: var(--muted); }
-    input, textarea { padding: 0.55rem 0.8rem; border: 1px solid var(--border); border-radius: 7px; font-family: 'Inter', sans-serif; font-size: 0.84rem; color: var(--text); background: var(--bg); transition: border-color 0.15s, box-shadow 0.15s; outline: none; }
-    input:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); background: var(--white); }
-    textarea { resize: vertical; min-height: 90px; }
-    .submit-btn { background: var(--accent); color: white; border: none; padding: 0.6rem 1.5rem; font-family: 'Inter', sans-serif; font-size: 0.84rem; font-weight: 700; border-radius: 7px; cursor: pointer; transition: background 0.15s; }
-    .submit-btn:hover { background: #1d4ed8; }
-    .form-note { font-size: 0.72rem; color: #aaa; margin-top: 0.5rem; }
+    /* Form */
+    .form-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem; margin-bottom: 1.25rem;
+      padding-top: 1.5rem; border-top: 1px solid var(--border);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 0.85rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.85rem; }
+    label { font-size: 0.74rem; font-weight: 600; color: var(--muted); }
+    input, textarea {
+      padding: 0.6rem 0.9rem; border: 1px solid var(--border); border-radius: 8px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.84rem; color: var(--text);
+      background: var(--surface); transition: border-color 0.15s, box-shadow 0.15s, background 0.15s; outline: none;
+    }
+    input:focus, textarea:focus {
+      border-color: var(--accent); box-shadow: 0 0 0 3px rgba(29,78,216,0.1); background: var(--white);
+    }
+    textarea { resize: vertical; min-height: 100px; }
+    .submit-btn {
+      background: var(--accent); color: white; border: none;
+      padding: 0.65rem 1.75rem; font-family: 'DM Sans', sans-serif;
+      font-size: 0.84rem; font-weight: 700; border-radius: 8px; cursor: pointer;
+      transition: background 0.15s; letter-spacing: 0.01em;
+    }
+    .submit-btn:hover { background: #1e40af; }
+    .form-note { font-size: 0.7rem; color: var(--muted2); margin-top: 0.6rem; }
     .form-note a { color: var(--accent); }
 
-    footer { text-align: center; padding: 1.5rem; font-size: 0.77rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: 0.5rem; }
+    /* ── FOOTER ── */
+    footer {
+      text-align: center; padding: 1.75rem;
+      font-size: 0.74rem; color: var(--muted2);
+      border-top: 1px solid var(--border); margin-top: 0.5rem;
+      letter-spacing: 0.02em;
+    }
 
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 500;
+      background: rgba(0,0,0,0.55); backdrop-filter: blur(4px);
+      align-items: center; justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--white); border-radius: 16px; width: 90%; max-width: 780px;
+      max-height: 90vh; display: flex; flex-direction: column;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.25); overflow: hidden;
+    }
+    .modal-header {
+      padding: 1rem 1.4rem; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .modal-title {
+      font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--text);
+    }
+    .modal-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .modal-close {
+      background: none; border: none; font-size: 1.2rem; cursor: pointer;
+      color: var(--muted); padding: 0.2rem 0.5rem; border-radius: 6px;
+      transition: background 0.15s;
+    }
+    .modal-close:hover { background: var(--surface); }
+    .modal-body { flex: 1; overflow: hidden; }
+    .modal-body iframe { width: 100%; height: 100%; border: none; min-height: 60vh; }
+    .modal-footer {
+      padding: 0.85rem 1.4rem; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-shrink: 0; background: var(--surface);
+    }
+    .modal-footer-note { font-size: 0.72rem; color: var(--muted2); }
+
+    /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       nav { padding: 0 1rem; }
-      .nav-links a { padding: 0.3rem 0.5rem; font-size: 0.75rem; }
-      .hero { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
-      .section { padding: 1.5rem; }
+      .nav-links a { font-size: 0.72rem; padding: 0.35rem 0.55rem; }
+      .container { padding: 1.5rem 1rem 3rem; }
+      .card { padding: 1.5rem; }
+      .hero { flex-direction: column; gap: 1.25rem; }
       .info-grid, .works-grid, .contact-grid, .form-row { grid-template-columns: 1fr; }
+      .modal { width: 96%; }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
-    <div class="nav-name">Alexander R. Santos</div>
+    <div class="nav-brand">
+      <span class="nav-brand-name">Alexander R. Santos</span>
+      <span class="nav-brand-sub">OJT Portfolio · PLV BSIT</span>
+    </div>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
-      <li><a href="#about">About Me</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#internship">Internship</a></li>
-      <li><a href="#works">Sample Works</a></li>
+      <li><a href="#works">Works</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -126,44 +351,47 @@
   <div class="container">
 
     <!-- HOME -->
-    <div class="section" id="home">
-      <div class="section-heading">OJT Student Portfolio</div>
-      <div class="section-title">Home / Landing Page</div>
+    <div class="card" id="home">
+      <div class="card-eyebrow">OJT Student Portfolio</div>
+      <div class="card-title">Home</div>
       <div class="hero">
         <div class="hero-photo">
           <img src="img/667814876_4346019189049874_1020999680993296239_n.jpg" alt="Alexander R. Santos" />
         </div>
         <div class="hero-info">
           <h1>Alexander R. Santos</h1>
-          <div class="role">BS Information Technology Student</div>
-          <div class="hero-meta">
-            <div class="hero-meta-item"><strong>Course</strong><span>Bachelor of Science in Information Technology</span></div>
-            <div class="hero-meta-item"><strong>School</strong><span>Pamantasan ng Lungsod ng Valenzuela</span></div>
-            <div class="hero-meta-item"><strong>Year</strong><span>4th Year (2022–2026, Ongoing)</span></div>
-            <div class="hero-meta-item"><strong>Address</strong><span>114 Lagdameo St., Fortune 4 Parada, Valenzuela City</span></div>
-          </div>
+          <div class="hero-role">BS Information Technology Student</div>
+          <dl class="hero-meta">
+            <div class="hero-meta-item"><dt>Course</dt><dd>Bachelor of Science in Information Technology</dd></div>
+            <div class="hero-meta-item"><dt>School</dt><dd>Pamantasan ng Lungsod ng Valenzuela</dd></div>
+            <div class="hero-meta-item"><dt>Year</dt><dd>4th Year (2022–2026, Ongoing)</dd></div>
+            <div class="hero-meta-item"><dt>Address</dt><dd>114 Lagdameo St., Fortune 4 Parada, Valenzuela City</dd></div>
+          </dl>
         </div>
       </div>
     </div>
 
     <!-- ABOUT ME -->
-    <div class="section" id="about">
-      <div class="section-heading">Background &amp; Skills</div>
-      <div class="section-title">About Me</div>
+    <div class="card" id="about">
+      <div class="card-eyebrow">Background &amp; Skills</div>
+      <div class="card-title">About Me</div>
+
       <p class="about-intro">
-        I am Alexander R. Santos, a 4th year BSIT student at Pamantasan ng Lungsod ng Valenzuela. I am seeking an internship where I can apply my skills in software and web development to contribute to real-world projects and grow as a professional.
+        I am Alexander R. Santos, a 4th year BSIT student at Pamantasan ng Lungsod ng Valenzuela. I am seeking an internship opportunity where I can apply my skills in software and web development to contribute to real-world projects and grow as a professional.
       </p>
-      <p class="skills-label">Skills Summary</p>
+
+      <p class="block-label">Skills Summary</p>
+
       <div class="skill-group">
         <div class="skill-group-label">Programming Languages</div>
-        <div class="skill-pills">
+        <div class="pill-row">
           <span class="pill">JavaScript</span><span class="pill">Java</span>
           <span class="pill">PHP</span><span class="pill">C#</span>
         </div>
       </div>
       <div class="skill-group">
         <div class="skill-group-label">Frameworks &amp; Databases</div>
-        <div class="skill-pills">
+        <div class="pill-row">
           <span class="pill">React Native</span><span class="pill">React Native Web</span>
           <span class="pill">Expo</span><span class="pill">Node.js</span>
           <span class="pill">MongoDB</span><span class="pill">MySQL</span>
@@ -171,27 +399,49 @@
       </div>
       <div class="skill-group">
         <div class="skill-group-label">Game Dev &amp; Multimedia</div>
-        <div class="skill-pills">
+        <div class="pill-row">
           <span class="pill">Unity</span><span class="pill">Adobe Photoshop</span>
           <span class="pill">Adobe Illustrator</span><span class="pill">Canva</span><span class="pill">Filmora</span>
         </div>
       </div>
       <div class="skill-group">
         <div class="skill-group-label">Soft Skills</div>
-        <div class="skill-pills">
-          <span class="pill soft-pill">Problem Solving</span><span class="pill soft-pill">Communication</span>
-          <span class="pill soft-pill">Teamwork</span><span class="pill soft-pill">Attention to Detail</span>
+        <div class="pill-row">
+          <span class="pill pill-green">Problem Solving</span>
+          <span class="pill pill-green">Communication</span>
+          <span class="pill pill-green">Teamwork</span>
+          <span class="pill pill-green">Attention to Detail</span>
         </div>
       </div>
-      <hr class="divider">
-      <p style="font-size:0.83rem;color:var(--muted);margin-bottom:0.75rem;">📄 Download my Resume / CV:</p>
-      <a href="AlexanderResume.pdf" class="resume-link" target="_blank">⬇ Download Resume (PDF)</a>
+
+      <hr class="sep">
+
+      <!-- RESUME VIEWER -->
+      <p class="resume-section-label">📄 Resume / CV</p>
+      <div class="resume-viewer-wrap">
+        <div class="resume-viewer-bar">
+          <div class="resume-viewer-bar-title">AlexanderResume.pdf</div>
+          <div class="resume-viewer-bar-actions">
+            <button class="rv-btn" onclick="openResumeModal()">⛶ Full Screen</button>
+            <a class="rv-btn rv-btn-primary" href="AlexanderResume.pdf" download>⬇ Download</a>
+          </div>
+        </div>
+        <iframe
+          class="resume-frame"
+          src="AlexanderResume.pdf#toolbar=0&navpanes=0&scrollbar=0"
+          title="Alexander Santos Resume">
+        </iframe>
+      </div>
+      <p style="font-size:0.72rem;color:var(--muted2);">
+        Can't see the preview? <a href="AlexanderResume.pdf" target="_blank" style="color:var(--accent);">Open in new tab</a> or <a href="AlexanderResume.pdf" download style="color:var(--accent);">download the PDF</a>.
+      </p>
     </div>
 
     <!-- INTERNSHIP -->
-    <div class="section" id="internship">
-      <div class="section-heading">OJT Details</div>
-      <div class="section-title">Internship Information</div>
+    <div class="card" id="internship">
+      <div class="card-eyebrow">OJT Details</div>
+      <div class="card-title">Internship Information</div>
+
       <div class="info-grid">
         <div class="info-box">
           <div class="info-box-label">Company / Organization</div>
@@ -210,9 +460,19 @@
           <div class="info-box-value">Jojo Michael Go</div>
         </div>
       </div>
-      <p class="sub-label">Company Address:</p>
-      <p style="font-size:0.84rem;color:var(--muted);margin-bottom:1.5rem;">[Add company address here]</p>
-      <p class="sub-label">Job Description / Assigned Tasks:</p>
+
+       <p class="field-label">Company Address</p>
+      <div class="address-box">
+        <div class="address-map-icon">📍</div>
+        <div>
+          <div class="address-text">Solution's Resource Inc.<br>Quezon City, Metro Manila, Philippines</div>
+          <a class="address-link" href="https://www.google.com/maps/place/Solutions+Resource/@14.6341516,121.0390445,17z" target="_blank">
+            View on Google Maps ↗
+          </a>
+        </div>
+      </div>
+      
+      <p class="field-label">Job Description / Assigned Tasks</p>
       <ul class="tasks-list">
         <li>Quality Assurance Tester</li>
         <li>Reporting daily progress to supervisor regarding given tasks</li>
@@ -224,77 +484,67 @@
     </div>
 
     <!-- SAMPLE WORKS -->
-    <div class="section" id="works">
-      <div class="section-heading">Outputs &amp; Deliverables</div>
-      <div class="section-title">Sample Works</div>
-      <p style="font-size:0.84rem;color:var(--muted);margin-bottom:1.25rem;">
-        Screenshots and descriptions of tasks completed during the internship, as well as prior academic projects.
+    <div class="card" id="works">
+      <div class="card-eyebrow">Outputs &amp; Deliverables</div>
+      <div class="card-title">Sample Works</div>
+      <p style="font-size:0.84rem;color:var(--muted);margin-bottom:1.4rem;">
+        Screenshots and descriptions of tasks completed during the internship and prior academic projects.
       </p>
+
       <div class="works-grid">
 
-        <!-- PLV EasePass — two screenshots shown side by side inside the thumb -->
         <div class="work-card">
           <div class="work-thumb">
             <img src="img/668442634_1429040178527414_5752765397797546622_n.jpg" alt="PLV EasePass" />
-            <div class="work-thumb-label">Academic Project</div>
+            <span class="work-badge badge-academic">Academic</span>
           </div>
           <div class="work-body">
             <h4>PLV EasePass</h4>
             <p>QR code-based identification system for first-year PLV students. Handles student registration and campus gate access.</p>
-            <div class="work-tags">
-              <span class="work-tag">React Native</span>
-              <span class="work-tag">Node.js</span>
-              <span class="work-tag">MongoDB</span>
+            <div class="tag-row">
+              <span class="tag">React Native</span><span class="tag">Node.js</span><span class="tag">MongoDB</span>
             </div>
           </div>
         </div>
 
-        <!-- Hidden Aquablitz -->
         <div class="work-card">
           <div class="work-thumb">
             <img src="img/482368435_1867584867334914_5683301142227032730_n.png" alt="Hidden Aquablitz" />
-            <div class="work-thumb-label">Academic Project</div>
+            <span class="work-badge badge-academic">Academic</span>
           </div>
           <div class="work-body">
             <h4>Hidden Aquablitz</h4>
             <p>Resort reservation website with a real-time booking management dashboard for resort owners.</p>
-            <div class="work-tags">
-              <span class="work-tag">PHP</span>
-              <span class="work-tag">MySQL</span>
-              <span class="work-tag">CSS</span>
+            <div class="tag-row">
+              <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">CSS</span>
             </div>
           </div>
         </div>
 
-        <!-- Bountiply — confidential -->
         <div class="work-card">
-          <div class="work-thumb" style="flex-direction:column;gap:0.5rem;font-size:1rem;">
+          <div class="work-thumb" style="flex-direction:column;gap:0.6rem;font-size:1rem;">
             🔒
-            <span class="confidential-badge">Confidential</span>
-            <div class="work-thumb-label">OJT Project</div>
+            <span class="work-badge badge-confidential" style="position:static;">Confidential</span>
           </div>
           <div class="work-body">
             <h4>Bountiply</h4>
             <p>Performed QA testing on the Bountiply platform. Details are confidential per company policy.</p>
-            <div class="work-tags">
-              <span class="work-tag">QA Testing</span>
-              <span class="work-tag">Bug Reporting</span>
+            <div class="tag-row">
+              <span class="tag">QA Testing</span><span class="tag">Bug Reporting</span>
             </div>
           </div>
         </div>
 
-        <!-- Redyoos -->
         <div class="work-card">
           <div class="work-thumb">
             <img src="img/unnamed.webp" alt="Redyoos" />
-            <div class="work-thumb-label">OJT Project</div>
+            <span class="work-badge badge-ojt">OJT</span>
           </div>
           <div class="work-body">
             <h4>Redyoos</h4>
             <p>Website for a US client focused on reselling pre-owned jewelry with integrated delivery service management.</p>
-            <div class="work-tags">
-              <span class="work-tag">QA Testing</span>
-              <span class="work-tag">Client Reporting</span>
+            <div class="tag-row">
+              <span class="tag">QA Testing</span><span class="tag">Client Reporting</span>
             </div>
           </div>
         </div>
@@ -303,32 +553,33 @@
     </div>
 
     <!-- CONTACT -->
-    <div class="section" id="contact">
-      <div class="section-heading">Get in Touch</div>
-      <div class="section-title">Contact</div>
+    <div class="card" id="contact">
+      <div class="card-eyebrow">Get in Touch</div>
+      <div class="card-title">Contact</div>
+
       <div class="contact-grid">
-        <div class="contact-item">
+        <div class="contact-card">
           <div class="contact-icon">✉️</div>
           <div>
             <div class="contact-label">Email</div>
             <div class="contact-value"><a href="mailto:alexandersantoswb@gmail.com">alexandersantoswb@gmail.com</a></div>
           </div>
         </div>
-        <div class="contact-item">
+        <div class="contact-card">
           <div class="contact-icon">📞</div>
           <div>
             <div class="contact-label">Phone</div>
             <div class="contact-value">0918 646 2052</div>
           </div>
         </div>
-        <div class="contact-item">
+        <div class="contact-card">
           <div class="contact-icon">📍</div>
           <div>
             <div class="contact-label">Address</div>
             <div class="contact-value">114 Lagdameo St., Fortune 4 Parada, Valenzuela City</div>
           </div>
         </div>
-        <div class="contact-item">
+        <div class="contact-card">
           <div class="contact-icon">🔗</div>
           <div>
             <div class="contact-label">LinkedIn</div>
@@ -339,14 +590,14 @@
         </div>
       </div>
 
-      <p class="form-title">Send a Message</p>
+      <p class="form-heading">Send a Message</p>
       <div class="form-row">
         <div class="form-group">
-          <label for="fname">Your Name</label>
+          <label for="fname">Full Name</label>
           <input type="text" id="fname" placeholder="Juan dela Cruz" />
         </div>
         <div class="form-group">
-          <label for="femail">Your Email</label>
+          <label for="femail">Email Address</label>
           <input type="email" id="femail" placeholder="juan@email.com" />
         </div>
       </div>
@@ -360,18 +611,50 @@
       </div>
       <button class="submit-btn" onclick="handleSubmit()">Send Message</button>
       <p class="form-note">
-        To make this form actually send emails, connect it to
-        <a href="https://formspree.io" target="_blank">Formspree.io</a> (free).
+        To make this form send actual emails, connect it to <a href="https://formspree.io" target="_blank">Formspree.io</a> (free &amp; easy to set up).
       </p>
     </div>
 
   </div>
 
   <footer>
-    © 2025 Alexander R. Santos · BSIT · Pamantasan ng Lungsod ng Valenzuela · OJT Portfolio
+    © 2025 Alexander R. Santos &nbsp;·&nbsp; BSIT &nbsp;·&nbsp; Pamantasan ng Lungsod ng Valenzuela &nbsp;·&nbsp; OJT Portfolio
   </footer>
 
+  <!-- RESUME MODAL -->
+  <div class="modal-overlay" id="resumeModal" onclick="closeResumeModal(event)">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title">AlexanderResume.pdf</span>
+        <div class="modal-actions">
+          <a class="rv-btn rv-btn-primary" href="AlexanderResume.pdf" download>⬇ Download</a>
+          <button class="modal-close" onclick="closeModal()">✕</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <iframe src="AlexanderResume.pdf" title="Resume Full View"></iframe>
+      </div>
+      <div class="modal-footer">
+        <span class="modal-footer-note">Press Esc or click outside to close</span>
+        <a class="rv-btn" href="AlexanderResume.pdf" target="_blank">Open in Browser ↗</a>
+      </div>
+    </div>
+  </div>
+
   <script>
+    function openResumeModal() {
+      document.getElementById('resumeModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('resumeModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeResumeModal(e) {
+      if (e.target === document.getElementById('resumeModal')) closeModal();
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
     function handleSubmit() {
       const name = document.getElementById('fname').value.trim();
       const email = document.getElementById('femail').value.trim();

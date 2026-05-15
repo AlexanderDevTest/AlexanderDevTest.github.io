@@ -1,41 +1,348 @@
-<!DOCTYPE Test-Run.html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
-        <link rel="stylesheet" href="CSS/Style.css">
-    </head>
-    <body>
-        <div class="background">
-            <header>
-                <div class="backgroundTabs">
-                    <nav>
-                        <ul>
-                            <div class="tabs">
-                                <a href="index.html"><h3><b>Home</b></h3></a>
-                            </div>
-                            <div class="tabs2">
-                                <a href="Tabs/Profile.html"><h3><b>Profile</b></h3></a>
-                            </div>
-                            <div class="tabs3">
-                                <a href="Tabs/Skill-Set.html"><h3><b>Skill set</b></h3></a>
-                            </div>
-                            <div class="tabs4">
-                                <a href="Tabs/Contact.html"><h3><b>Contact</b></h3></a>
-                            </div>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
-            </div>
-        <div class="textOutline">
-            <h1><b>Welcome to my website</b></h1>
-            <h3><p>Hi, I am Alexander Santos and this is my website.</p></h3>
-            <h3><p>In here you will find everything there is to know about me.</p></h3>
-            <div class="picture"><img src="img/1x1.png "></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alexander R. Santos — OJT Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f5f6fa; --white: #ffffff; --border: #e0e0e0;
+      --text: #222222; --muted: #666666; --accent: #2563eb; --accent-light: #eff6ff;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; }
+    nav {
+      position: sticky; top: 0; z-index: 100; background: var(--white);
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between; height: 56px;
+    }
+    .nav-name { font-weight: 700; font-size: 0.95rem; color: var(--accent); }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color: var(--accent); }
+    .container { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+    .section { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; margin-bottom: 1.5rem; }
+    .section-heading { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 0.4rem; }
+    .section-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+    .hero { display: flex; gap: 2rem; align-items: center; }
+    .hero-photo {
+      width: 120px; height: 140px; border-radius: 6px; background: #e8edf5;
+      border: 1px solid var(--border); flex-shrink: 0; display: flex; align-items: center;
+      justify-content: center; flex-direction: column; gap: 0.25rem; overflow: hidden;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .photo-placeholder { font-size: 2rem; color: #aaa; }
+    .photo-label { font-size: 0.6rem; color: #aaa; text-align: center; padding: 0 0.4rem; }
+    .hero-info h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .hero-info .role { font-size: 0.95rem; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+    .hero-meta { display: flex; flex-direction: column; gap: 0.2rem; }
+    .hero-meta span { font-size: 0.85rem; color: var(--muted); }
+    .hero-meta strong { color: var(--text); }
+    .skill-group { margin-bottom: 0.75rem; }
+    .skill-group-label { font-size: 0.75rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .pill { font-size: 0.78rem; padding: 0.2rem 0.65rem; background: var(--accent-light); color: var(--accent); border: 1px solid #bfdbfe; border-radius: 4px; font-weight: 500; }
+    .soft-pill { background: #f0fdf4; color: #166534; border-color: #bbf7d0; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
+    .resume-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 600; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); padding: 0.45rem 1rem; border-radius: 5px; transition: background 0.15s; }
+    .resume-link:hover { background: var(--accent-light); }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+    .info-box { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1rem; }
+    .info-box-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.3rem; }
+    .info-box-value { font-size: 0.9rem; font-weight: 600; }
+    .tasks-list { padding-left: 1.25rem; }
+    .tasks-list li { font-size: 0.88rem; margin-bottom: 0.4rem; }
+    .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .work-card { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .work-thumb { height: 120px; background: #e8edf5; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+    .work-body { padding: 0.85rem 1rem; }
+    .work-body h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.3rem; }
+    .work-body p { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .work-tag { font-size: 0.68rem; font-weight: 500; background: #f3f4f6; color: #555; border: 1px solid var(--border); padding: 0.15rem 0.5rem; border-radius: 3px; display: inline-block; margin-right: 0.25rem; }
+    .placeholder-note { font-size: 0.78rem; color: #aaa; font-style: italic; text-align: center; padding: 1.25rem; border: 1px dashed var(--border); border-radius: 6px; margin-top: 0.75rem; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+    .contact-item { display: flex; gap: 0.75rem; align-items: flex-start; }
+    .contact-icon { font-size: 1.1rem; margin-top: 0.1rem; }
+    .contact-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.1rem; }
+    .contact-value { font-size: 0.88rem; font-weight: 500; }
+    .contact-value a { color: var(--accent); text-decoration: none; }
+    .contact-value a:hover { text-decoration: underline; }
+    .contact-form h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.75rem; }
+    label { font-size: 0.78rem; font-weight: 600; color: var(--muted); }
+    input, textarea { padding: 0.55rem 0.75rem; border: 1px solid var(--border); border-radius: 5px; font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--text); background: var(--white); transition: border-color 0.15s; outline: none; }
+    input:focus, textarea:focus { border-color: var(--accent); }
+    textarea { resize: vertical; min-height: 90px; }
+    .submit-btn { background: var(--accent); color: white; border: none; padding: 0.6rem 1.5rem; font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600; border-radius: 5px; cursor: pointer; }
+    .submit-btn:hover { background: #1d4ed8; }
+    footer { text-align: center; padding: 1.5rem; font-size: 0.78rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: 0.5rem; }
+    @media (max-width: 640px) {
+      nav { padding: 0 1rem; } .nav-links { gap: 1rem; }
+      .hero { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .info-grid, .works-grid, .contact-grid, .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-name">Alexander R. Santos</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#internship">Internship</a></li>
+      <li><a href="#works">Sample Works</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+
+    <!-- HOME -->
+    <div class="section" id="home">
+      <div class="section-heading">OJT Student Portfolio</div>
+      <div class="section-title">Home / Landing Page</div>
+      <div class="hero">
+        <div class="hero-photo">
+          <!-- To add your photo: replace this div with <img src="photo.jpg" alt="Alexander Santos"> -->
+          <div class="photo-placeholder">🧑‍💼</div>
+          <div class="photo-label">Add formal photo here</div>
         </div>
+        <div class="hero-info">
+          <h1>Alexander R. Santos</h1>
+          <div class="role">BS Information Technology Student</div>
+          <div class="hero-meta">
+            <span><strong>Course:</strong> Bachelor of Science in Information Technology</span>
+            <span><strong>School:</strong> Pamantasan ng Lungsod ng Valenzuela</span>
+            <span><strong>Year Level:</strong> 3rd Year (2022–2025, Ongoing)</span>
+            <span><strong>Address:</strong> 114 Lagdameo St., Fortune 4 Parada, Valenzuela City</span>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- ABOUT ME -->
+    <div class="section" id="about">
+      <div class="section-heading">Background &amp; Skills</div>
+      <div class="section-title">About Me</div>
+
+      <p style="font-size:0.9rem;color:var(--muted);margin-bottom:1.25rem;">
+        I am Alexander R. Santos, a 3rd year BSIT student at Pamantasan ng Lungsod ng Valenzuela. I am seeking an internship where I can apply my skills in software and web development to contribute to real-world projects and grow as a professional.
+      </p>
+
+      <h3 style="font-size:0.9rem;font-weight:600;margin-bottom:0.75rem;">Skills Summary</h3>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Programming Languages</div>
+        <div class="skill-pills">
+          <span class="pill">JavaScript</span><span class="pill">Java</span>
+          <span class="pill">PHP</span><span class="pill">C#</span>
+        </div>
+      </div>
+      <div class="skill-group" style="margin-top:0.75rem;">
+        <div class="skill-group-label">Frameworks &amp; Databases</div>
+        <div class="skill-pills">
+          <span class="pill">React Native</span><span class="pill">React Native Web</span>
+          <span class="pill">Expo</span><span class="pill">Node.js</span>
+          <span class="pill">MongoDB</span><span class="pill">MySQL</span>
+        </div>
+      </div>
+      <div class="skill-group" style="margin-top:0.75rem;">
+        <div class="skill-group-label">Game Dev &amp; Multimedia</div>
+        <div class="skill-pills">
+          <span class="pill">Unity</span><span class="pill">Adobe Photoshop</span>
+          <span class="pill">Adobe Illustrator</span><span class="pill">Canva</span><span class="pill">Filmora</span>
+        </div>
+      </div>
+      <div class="skill-group" style="margin-top:0.75rem;">
+        <div class="skill-group-label">Soft Skills</div>
+        <div class="skill-pills">
+          <span class="pill soft-pill">Problem Solving</span><span class="pill soft-pill">Communication</span>
+          <span class="pill soft-pill">Teamwork</span><span class="pill soft-pill">Attention to Detail</span>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.75rem;">📄 Resume / CV:</p>
+      <!-- Upload your resume PDF to the same folder and update the href below -->
+      <a href="Alexander_Santos_Resume.pdf" class="resume-link" target="_blank">⬇ Download Resume (PDF)</a>
+      <p style="font-size:0.73rem;color:#aaa;margin-top:0.5rem;">Upload your PDF resume to the same folder as index.html and update the link above.</p>
+    </div>
+
+    <!-- INTERNSHIP INFORMATION -->
+    <div class="section" id="internship">
+      <div class="section-heading">OJT Details</div>
+      <div class="section-title">Internship Information</div>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <div class="info-box-label">Company / Organization</div>
+          <div class="info-box-value">[Company Name Here]</div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-label">Department</div>
+          <div class="info-box-value">[Department Here]</div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-label">Internship Period</div>
+          <div class="info-box-value">[Start Date] – [End Date]</div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-label">Supervisor / Mentor</div>
+          <div class="info-box-value">[Supervisor Name]</div>
+        </div>
+      </div>
+
+      <p style="font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">Company Address:</p>
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.25rem;">[Full company address here]</p>
+
+      <p style="font-size:0.85rem;font-weight:600;margin-bottom:0.5rem;">Job Description / Assigned Tasks:</p>
+      <ul class="tasks-list">
+        <li>[Describe your main role or position during the internship]</li>
+        <li>[Task 1 — e.g., Assisted in developing a web-based monitoring system]</li>
+        <li>[Task 2 — e.g., Helped with system testing and bug reporting]</li>
+        <li>[Task 3 — e.g., Created UI mockups using Figma or Canva]</li>
+        <li>[Task 4 — Add more tasks as needed]</li>
+      </ul>
+      <p style="font-size:0.73rem;color:#aaa;margin-top:0.75rem;font-style:italic;">Fill in the details above once your internship begins or is completed.</p>
+    </div>
+
+    <!-- SAMPLE WORKS -->
+    <div class="section" id="works">
+      <div class="section-heading">Outputs &amp; Deliverables</div>
+      <div class="section-title">Sample Works</div>
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.25rem;">
+        Files, screenshots, and descriptions of actual tasks completed during the internship, as well as prior academic projects.
+      </p>
+
+      <div class="works-grid">
+        <div class="work-card">
+          <div class="work-thumb">📱</div>
+          <div class="work-body">
+            <h4>PLV EasePass</h4>
+            <p>QR code-based identification system for first-year PLV students. Handles student registration and campus gate access.</p>
+            <span class="work-tag">React Native</span>
+            <span class="work-tag">Node.js</span>
+            <span class="work-tag">MongoDB</span>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-thumb">🏖️</div>
+          <div class="work-body">
+            <h4>Hidden Aquablitz</h4>
+            <p>Resort reservation website with a real-time booking management dashboard for resort owners.</p>
+            <span class="work-tag">PHP</span>
+            <span class="work-tag">MySQL</span>
+            <span class="work-tag">CSS</span>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-thumb">🖥️</div>
+          <div class="work-body">
+            <h4>[OJT Output Title]</h4>
+            <p>[Brief description of the task or project completed during your internship.]</p>
+            <span class="work-tag">[Tool/Tech]</span>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-thumb">📄</div>
+          <div class="work-body">
+            <h4>[OJT Output Title]</h4>
+            <p>[e.g., report written, design created, system tested, or event helped organize.]</p>
+            <span class="work-tag">[Tool/Tech]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="placeholder-note">
+        Replace the placeholder cards above with real screenshots, file links, or descriptions of your actual OJT outputs.
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="section" id="contact">
+      <div class="section-heading">Get in Touch</div>
+      <div class="section-title">Contact</div>
+
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value"><a href="mailto:alexandersantoswb@gmail.com">alexandersantoswb@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-value">0918 646 2052</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Address</div>
+            <div class="contact-value">114 Lagdameo St., Fortune 4 Parada, Valenzuela City</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🔗</div>
+          <div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-value">
+              <!-- Replace with your actual LinkedIn URL -->
+              <a href="https://linkedin.com/in/your-profile" target="_blank">linkedin.com/in/your-profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>Send a Message</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">Your Name</label>
+            <input type="text" id="fname" placeholder="Juan dela Cruz" />
+          </div>
+          <div class="form-group">
+            <label for="femail">Your Email</label>
+            <input type="email" id="femail" placeholder="juan@email.com" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fsubject">Subject</label>
+          <input type="text" id="fsubject" placeholder="Internship inquiry..." />
+        </div>
+        <div class="form-group">
+          <label for="fmessage">Message</label>
+          <textarea id="fmessage" placeholder="Your message here..."></textarea>
+        </div>
+        <button class="submit-btn" onclick="handleSubmit()">Send Message</button>
+        <p style="font-size:0.73rem;color:#aaa;margin-top:0.5rem;">
+          To make this form functional, connect it to <a href="https://formspree.io" target="_blank" style="color:var(--accent);">Formspree.io</a> (free).
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2025 Alexander R. Santos · BSIT · Pamantasan ng Lungsod ng Valenzuela · OJT Portfolio
+  </footer>
+
+  <script>
+    function handleSubmit() {
+      const name = document.getElementById('fname').value.trim();
+      const email = document.getElementById('femail').value.trim();
+      const message = document.getElementById('fmessage').value.trim();
+      if (!name || !email || !message) { alert('Please fill in all required fields.'); return; }
+      alert('Thank you, ' + name + '! Your message has been noted.');
+    }
+  </script>
 </body>
-<footer><h4>Copyright by Alexander Santos</h4></footer>
 </html>

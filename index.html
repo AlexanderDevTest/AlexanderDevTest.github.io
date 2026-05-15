@@ -4,25 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Alexander R. Santos — OJT Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #f7f6f3;
+      --bg: #f4f3ef;
       --white: #ffffff;
-      --surface: #f0ede8;
-      --border: #e4dfd8;
-      --text: #1c1917;
-      --muted: #78716c;
-      --muted2: #a8a29e;
-      --accent: #1d4ed8;
-      --accent-light: #eff6ff;
-      --accent-border: #bfdbfe;
-      --green: #15803d;
-      --green-light: #f0fdf4;
-      --green-border: #bbf7d0;
+      --surface: #eceae4;
+      --border: #ddd9d0;
+      --text: #18170f;
+      --muted: #3d3b36;
+      --muted2: #6b6760;
+      --accent: #1a3a5c;
+      --accent-mid: #2455884d;
+      --accent-light: #edf2f8;
+      --accent-border: #b8cfe8;
+      --green: #1a5c38;
+      --green-light: #edf8f2;
+      --green-border: #b8dfc9;
       --gold: #b45309;
+      --gold-light: #fef9ec;
+      --red: #991b1b;
+      --red-light: #fef2f2;
+      --red-border: #fecaca;
     }
 
     html { scroll-behavior: smooth; }
@@ -30,7 +35,7 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Outfit', sans-serif;
       font-size: 15px;
       line-height: 1.65;
     }
@@ -38,52 +43,50 @@
     /* ── NAV ── */
     nav {
       position: sticky; top: 0; z-index: 200;
-      background: rgba(247,246,243,0.92);
-      backdrop-filter: blur(12px);
+      background: rgba(244,243,239,0.94);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
       padding: 0 3rem;
       display: flex; align-items: center; justify-content: space-between;
-      height: 60px;
+      height: 62px;
     }
-    .nav-brand {
-      display: flex; flex-direction: column; line-height: 1.2;
-    }
+    .nav-brand { display: flex; flex-direction: column; line-height: 1.15; }
     .nav-brand-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1rem; color: var(--text); letter-spacing: 0.01em;
+      font-family: 'Lora', serif;
+      font-size: 1.05rem; color: var(--text); letter-spacing: 0.01em;
     }
     .nav-brand-sub {
-      font-size: 0.65rem; color: var(--muted); font-weight: 500;
-      letter-spacing: 0.08em; text-transform: uppercase;
+      font-size: 0.62rem; color: var(--muted); font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
     }
     .nav-links { display: flex; gap: 0.1rem; list-style: none; }
     .nav-links a {
-      font-size: 0.8rem; font-weight: 500; color: var(--muted);
-      text-decoration: none; padding: 0.4rem 0.85rem; border-radius: 6px;
-      transition: color 0.15s, background 0.15s; letter-spacing: 0.01em;
+      font-size: 0.78rem; font-weight: 500; color: var(--muted);
+      text-decoration: none; padding: 0.38rem 0.85rem; border-radius: 6px;
+      transition: color 0.15s, background 0.15s; letter-spacing: 0.02em;
     }
     .nav-links a:hover { color: var(--accent); background: var(--accent-light); }
 
     /* ── LAYOUT ── */
     .container { max-width: 900px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
 
-    /* ── SECTION ── */
+    /* ── CARD ── */
     .card {
       background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 2.25rem 2.5rem;
       margin-bottom: 1.25rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04), 0 6px 20px rgba(0,0,0,0.04);
     }
     .card-eyebrow {
-      font-size: 0.67rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.16em; color: var(--accent); margin-bottom: 0.25rem;
+      font-size: 0.63rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.2em; color: var(--accent); margin-bottom: 0.3rem;
     }
     .card-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.6rem; color: var(--text);
-      margin-bottom: 1.5rem; padding-bottom: 1rem;
+      font-family: 'Lora', serif;
+      font-size: 1.65rem; color: var(--text);
+      margin-bottom: 1.75rem; padding-bottom: 1rem;
       border-bottom: 1px solid var(--border);
       letter-spacing: -0.01em;
     }
@@ -91,42 +94,43 @@
     /* ── HOME ── */
     .hero { display: flex; gap: 2.5rem; align-items: center; }
     .hero-photo {
-      width: 120px; height: 148px; border-radius: 12px;
+      width: 118px; height: 148px; border-radius: 12px;
       border: 1px solid var(--border); flex-shrink: 0; overflow: hidden;
       background: var(--surface);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.1);
     }
     .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .hero-info h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2rem; letter-spacing: -0.02em; margin-bottom: 0.35rem;
+      font-family: 'Lora', serif;
+      font-size: 2.1rem; letter-spacing: -0.02em; margin-bottom: 0.4rem; line-height: 1.2;
     }
     .hero-role {
       display: inline-flex; align-items: center; gap: 0.4rem;
-      font-size: 0.78rem; font-weight: 600; color: var(--accent);
+      font-size: 0.76rem; font-weight: 600; color: var(--accent);
       background: var(--accent-light); border: 1px solid var(--accent-border);
-      padding: 0.25rem 0.75rem; border-radius: 20px; margin-bottom: 1.1rem;
-      letter-spacing: 0.02em;
+      padding: 0.25rem 0.85rem; border-radius: 20px; margin-bottom: 1.2rem;
+      letter-spacing: 0.03em;
     }
     .hero-meta { display: flex; flex-direction: column; gap: 0.35rem; }
-    .hero-meta-item { display: flex; gap: 0.6rem; font-size: 0.82rem; align-items: baseline; }
-    .hero-meta-item dt { color: var(--muted); font-weight: 500; min-width: 58px; flex-shrink: 0; }
+    .hero-meta-item { display: flex; gap: 0.65rem; font-size: 0.82rem; align-items: baseline; }
+    .hero-meta-item dt { color: var(--muted); font-weight: 500; min-width: 60px; flex-shrink: 0; }
     .hero-meta-item dd { color: var(--text); font-weight: 400; }
 
     /* ── ABOUT ── */
     .about-intro {
-      font-size: 0.9rem; color: var(--muted); line-height: 1.8;
+      font-size: 0.91rem; color: var(--muted); line-height: 1.85;
       margin-bottom: 1.75rem; font-style: italic;
+      border-left: 3px solid var(--accent-border); padding-left: 1.1rem;
     }
-    .block-label { font-size: 0.78rem; font-weight: 700; color: var(--text); margin-bottom: 0.9rem; }
+    .block-label { font-size: 0.79rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; }
     .skill-group { margin-bottom: 1.1rem; }
     .skill-group-label {
-      font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.12em; color: var(--muted2); margin-bottom: 0.5rem;
+      font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.14em; color: var(--muted2); margin-bottom: 0.5rem;
     }
     .pill-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .pill {
-      font-size: 0.74rem; font-weight: 500; padding: 0.22rem 0.75rem;
+      font-size: 0.73rem; font-weight: 500; padding: 0.22rem 0.8rem;
       background: var(--accent-light); color: var(--accent);
       border: 1px solid var(--accent-border); border-radius: 20px;
     }
@@ -136,66 +140,155 @@
     }
     .sep { border: none; border-top: 1px solid var(--border); margin: 1.75rem 0; }
 
-    /* Resume viewer */
+    /* ── RESUME SECTION ── */
+    .resume-section-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
     .resume-section-label {
-      font-size: 0.78rem; font-weight: 700; color: var(--text); margin-bottom: 0.75rem;
+      font-size: 0.79rem; font-weight: 700; color: var(--text);
+      display: flex; align-items: center; gap: 0.5rem;
     }
-    .resume-viewer-wrap {
-      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
-      background: var(--surface); margin-bottom: 1rem;
+    .resume-download-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.75rem; font-weight: 600; padding: 0.4rem 1rem;
+      background: var(--accent); color: white; border: none;
+      border-radius: 8px; cursor: pointer; text-decoration: none;
+      transition: background 0.15s;
     }
-    .resume-viewer-bar {
-      background: var(--surface); border-bottom: 1px solid var(--border);
-      padding: 0.6rem 1rem; display: flex; align-items: center;
-      justify-content: space-between;
-    }
-    .resume-viewer-bar-title {
-      font-size: 0.75rem; font-weight: 600; color: var(--muted);
-      display: flex; align-items: center; gap: 0.4rem;
-    }
-    .resume-viewer-bar-title::before {
-      content: ''; width: 10px; height: 10px; border-radius: 50%;
-      background: #ef4444; box-shadow: 14px 0 0 #f59e0b, 28px 0 0 #22c55e;
-      flex-shrink: 0;
-    }
-    .resume-viewer-bar-actions { display: flex; gap: 0.5rem; }
-    .rv-btn {
-      font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.75rem;
-      border-radius: 6px; cursor: pointer; border: 1px solid var(--border);
-      background: var(--white); color: var(--muted); text-decoration: none;
-      transition: all 0.15s; display: inline-flex; align-items: center; gap: 0.3rem;
-    }
-    .rv-btn:hover { background: var(--surface); color: var(--text); }
-    .rv-btn-primary {
-      background: var(--accent); color: white; border-color: var(--accent);
-    }
-    .rv-btn-primary:hover { background: #1e40af; color: white; }
+    .resume-download-btn:hover { background: #122b45; }
 
-    iframe.resume-frame {
-      width: 100%; height: 520px; border: none; display: block;
-      background: #fff;
+    /* Resume document */
+    .resume-doc {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     }
-    .resume-toggle {
-      font-size: 0.8rem; font-weight: 600; color: var(--accent);
-      background: none; border: none; cursor: pointer; padding: 0;
-      text-decoration: underline; text-underline-offset: 2px;
+    .resume-doc-bar {
+      background: #f0ede8;
+      border-bottom: 1px solid var(--border);
+      padding: 0.65rem 1.1rem;
+      display: flex; align-items: center; gap: 0.45rem;
+    }
+    .doc-dot {
+      width: 11px; height: 11px; border-radius: 50%;
+    }
+    .doc-dot-r { background: #ef4444; }
+    .doc-dot-y { background: #f59e0b; }
+    .doc-dot-g { background: #22c55e; }
+    .doc-bar-name {
+      margin-left: 0.5rem;
+      font-size: 0.74rem; font-weight: 600; color: var(--muted);
+    }
+
+    .resume-content {
+      padding: 2.5rem 3rem;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Resume header */
+    .rv-name {
+      font-family: 'Lora', serif;
+      font-size: 1.9rem; font-weight: 700;
+      color: var(--text); letter-spacing: -0.02em;
+      margin-bottom: 0.15rem;
+    }
+    .rv-title {
+      font-size: 0.85rem; color: var(--muted); font-weight: 400;
+      margin-bottom: 1rem; letter-spacing: 0.02em;
+    }
+    .rv-contacts {
+      display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem;
+      font-size: 0.78rem; color: var(--muted); margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem; border-bottom: 2px solid var(--text);
+    }
+    .rv-contacts span { display: flex; align-items: center; gap: 0.35rem; }
+
+    /* Resume sections */
+    .rv-section { margin-bottom: 1.5rem; }
+    .rv-section-title {
+      font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.2em; color: var(--accent);
+      border-bottom: 1.5px solid var(--accent-border);
+      padding-bottom: 0.35rem; margin-bottom: 1rem;
+    }
+
+    /* Skills grid in resume */
+    .rv-skills-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.6rem 2rem;
+    }
+    .rv-skill-row {
+      display: flex; flex-direction: column; gap: 0.15rem;
+    }
+    .rv-skill-cat {
+      font-size: 0.7rem; font-weight: 700; color: var(--text); text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .rv-skill-val { font-size: 0.8rem; color: var(--muted); }
+
+    /* Experience / works */
+    .rv-entry { margin-bottom: 1.1rem; }
+    .rv-entry-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 0.2rem; flex-wrap: wrap; gap: 0.3rem;
+    }
+    .rv-entry-title { font-size: 0.88rem; font-weight: 700; color: var(--text); }
+    .rv-entry-period {
+      font-size: 0.72rem; color: var(--muted); font-weight: 500;
+      background: var(--surface); padding: 0.1rem 0.55rem;
+      border-radius: 4px; border: 1px solid var(--border);
+    }
+    .rv-entry-company { font-size: 0.78rem; color: var(--accent); font-weight: 500; margin-bottom: 0.45rem; }
+    .rv-entry-list { padding-left: 1.1rem; }
+    .rv-entry-list li {
+      font-size: 0.8rem; color: var(--muted); line-height: 1.65;
+      margin-bottom: 0.2rem;
+    }
+    .rv-entry-list li::marker { color: var(--accent); }
+
+    /* Education */
+    .rv-edu-entry { margin-bottom: 0.85rem; }
+    .rv-edu-school { font-size: 0.88rem; font-weight: 700; color: var(--text); }
+    .rv-edu-degree { font-size: 0.8rem; color: var(--muted); }
+    .rv-edu-period { font-size: 0.74rem; color: var(--muted2); }
+
+    /* Declaration */
+    .rv-declaration {
+      font-size: 0.76rem; color: var(--muted); font-style: italic;
+      padding-top: 1.2rem; border-top: 1px solid var(--border);
+      margin-top: 0.5rem; line-height: 1.75;
     }
 
     /* ── INTERNSHIP ── */
     .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 1.5rem; }
     .info-box {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 10px; padding: 1rem 1.1rem;
+      border-radius: 10px; padding: 1rem 1.15rem;
     }
     .info-box-label {
-      font-size: 0.63rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.12em; color: var(--muted2); margin-bottom: 0.2rem;
+      font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.14em; color: var(--muted2); margin-bottom: 0.2rem;
     }
     .info-box-value { font-size: 0.9rem; font-weight: 600; color: var(--text); }
-    .field-label { font-size: 0.8rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .tasks-list { padding-left: 1.1rem; }
+    .field-label { font-size: 0.8rem; font-weight: 700; margin-bottom: 0.6rem; margin-top: 1.25rem; }
+    .field-label:first-of-type { margin-top: 0; }
+
+    .address-box {
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 0.85rem 1.1rem; margin-bottom: 1.25rem;
+    }
+    .address-map-icon { font-size: 1.1rem; margin-top: 0.05rem; }
+    .address-text { font-size: 0.83rem; font-weight: 500; color: var(--text); margin-bottom: 0.3rem; }
+    .address-link { font-size: 0.75rem; color: var(--accent); text-decoration: none; }
+    .address-link:hover { text-decoration: underline; }
+
+    .tasks-list { padding-left: 1.15rem; }
     .tasks-list li {
-      font-size: 0.84rem; color: var(--muted); margin-bottom: 0.4rem; line-height: 1.6;
+      font-size: 0.84rem; color: var(--muted); margin-bottom: 0.45rem; line-height: 1.65;
     }
     .tasks-list li::marker { color: var(--accent); }
 
@@ -206,7 +299,7 @@
       overflow: hidden; transition: box-shadow 0.2s, transform 0.2s;
       background: var(--white);
     }
-    .work-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.09); transform: translateY(-3px); }
+    .work-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.1); transform: translateY(-3px); }
     .work-thumb {
       height: 155px; background: var(--surface);
       display: flex; align-items: center; justify-content: center;
@@ -218,12 +311,12 @@
       font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em;
       text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 4px;
     }
-    .badge-academic { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
-    .badge-ojt { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
-    .badge-confidential { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
-    .work-body { padding: 1rem 1.1rem; }
+    .badge-academic { background: var(--accent-light); color: var(--accent); border: 1px solid var(--accent-border); }
+    .badge-ojt { background: var(--gold-light); color: var(--gold); border: 1px solid #fde68a; }
+    .badge-confidential { background: var(--red-light); color: var(--red); border: 1px solid var(--red-border); }
+    .work-body { padding: 1rem 1.15rem; }
     .work-body h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; letter-spacing: -0.01em; }
-    .work-body p { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.65rem; line-height: 1.6; }
+    .work-body p { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.65rem; line-height: 1.65; }
     .tag-row { display: flex; flex-wrap: wrap; gap: 0.3rem; }
     .tag {
       font-size: 0.64rem; font-weight: 600; padding: 0.15rem 0.55rem;
@@ -241,7 +334,7 @@
     .contact-icon { font-size: 1.1rem; margin-top: 0.05rem; }
     .contact-label {
       font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.12em; color: var(--muted2); margin-bottom: 0.15rem;
+      letter-spacing: 0.14em; color: var(--muted2); margin-bottom: 0.15rem;
     }
     .contact-value { font-size: 0.83rem; font-weight: 500; color: var(--text); }
     .contact-value a { color: var(--accent); text-decoration: none; }
@@ -249,7 +342,7 @@
 
     /* Form */
     .form-heading {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Lora', serif;
       font-size: 1.1rem; margin-bottom: 1.25rem;
       padding-top: 1.5rem; border-top: 1px solid var(--border);
     }
@@ -257,22 +350,22 @@
     .form-group { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.85rem; }
     label { font-size: 0.74rem; font-weight: 600; color: var(--muted); }
     input, textarea {
-      padding: 0.6rem 0.9rem; border: 1px solid var(--border); border-radius: 8px;
-      font-family: 'DM Sans', sans-serif; font-size: 0.84rem; color: var(--text);
+      padding: 0.62rem 0.95rem; border: 1px solid var(--border); border-radius: 8px;
+      font-family: 'Outfit', sans-serif; font-size: 0.84rem; color: var(--text);
       background: var(--surface); transition: border-color 0.15s, box-shadow 0.15s, background 0.15s; outline: none;
     }
     input:focus, textarea:focus {
-      border-color: var(--accent); box-shadow: 0 0 0 3px rgba(29,78,216,0.1); background: var(--white);
+      border-color: var(--accent); box-shadow: 0 0 0 3px rgba(26,58,92,0.1); background: var(--white);
     }
     textarea { resize: vertical; min-height: 100px; }
     .submit-btn {
       background: var(--accent); color: white; border: none;
-      padding: 0.65rem 1.75rem; font-family: 'DM Sans', sans-serif;
+      padding: 0.65rem 1.75rem; font-family: 'Outfit', sans-serif;
       font-size: 0.84rem; font-weight: 700; border-radius: 8px; cursor: pointer;
-      transition: background 0.15s; letter-spacing: 0.01em;
+      transition: background 0.15s; letter-spacing: 0.02em;
     }
-    .submit-btn:hover { background: #1e40af; }
-    .form-note { font-size: 0.7rem; color: var(--muted2); margin-top: 0.6rem; }
+    .submit-btn:hover { background: #122b45; }
+    .form-note { font-size: 0.7rem; color: var(--muted2); margin-top: 0.65rem; }
     .form-note a { color: var(--accent); }
 
     /* ── FOOTER ── */
@@ -280,54 +373,20 @@
       text-align: center; padding: 1.75rem;
       font-size: 0.74rem; color: var(--muted2);
       border-top: 1px solid var(--border); margin-top: 0.5rem;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
     }
-
-    /* ── MODAL ── */
-    .modal-overlay {
-      display: none; position: fixed; inset: 0; z-index: 500;
-      background: rgba(0,0,0,0.55); backdrop-filter: blur(4px);
-      align-items: center; justify-content: center;
-    }
-    .modal-overlay.open { display: flex; }
-    .modal {
-      background: var(--white); border-radius: 16px; width: 90%; max-width: 780px;
-      max-height: 90vh; display: flex; flex-direction: column;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.25); overflow: hidden;
-    }
-    .modal-header {
-      padding: 1rem 1.4rem; border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      flex-shrink: 0;
-    }
-    .modal-title {
-      font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--text);
-    }
-    .modal-actions { display: flex; gap: 0.5rem; align-items: center; }
-    .modal-close {
-      background: none; border: none; font-size: 1.2rem; cursor: pointer;
-      color: var(--muted); padding: 0.2rem 0.5rem; border-radius: 6px;
-      transition: background 0.15s;
-    }
-    .modal-close:hover { background: var(--surface); }
-    .modal-body { flex: 1; overflow: hidden; }
-    .modal-body iframe { width: 100%; height: 100%; border: none; min-height: 60vh; }
-    .modal-footer {
-      padding: 0.85rem 1.4rem; border-top: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      flex-shrink: 0; background: var(--surface);
-    }
-    .modal-footer-note { font-size: 0.72rem; color: var(--muted2); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       nav { padding: 0 1rem; }
-      .nav-links a { font-size: 0.72rem; padding: 0.35rem 0.55rem; }
+      .nav-links a { font-size: 0.7rem; padding: 0.32rem 0.5rem; }
       .container { padding: 1.5rem 1rem 3rem; }
       .card { padding: 1.5rem; }
       .hero { flex-direction: column; gap: 1.25rem; }
       .info-grid, .works-grid, .contact-grid, .form-row { grid-template-columns: 1fr; }
-      .modal { width: 96%; }
+      .resume-content { padding: 1.5rem; }
+      .rv-skills-grid { grid-template-columns: 1fr; }
+      .rv-contacts { gap: 0.3rem 1rem; }
     }
   </style>
 </head>
@@ -416,25 +475,140 @@
 
       <hr class="sep">
 
-      <!-- RESUME VIEWER -->
-      <p class="resume-section-label">📄 Resume / CV</p>
-      <div class="resume-viewer-wrap">
-        <div class="resume-viewer-bar">
-          <div class="resume-viewer-bar-title">AlexanderResume.pdf</div>
-          <div class="resume-viewer-bar-actions">
-            <button class="rv-btn" onclick="openResumeModal()">⛶ Full Screen</button>
-            <a class="rv-btn rv-btn-primary" href="AlexanderResume.pdf" download>⬇ Download</a>
-          </div>
-        </div>
-        <iframe
-          class="resume-frame"
-          src="AlexanderResume.pdf#toolbar=0&navpanes=0&scrollbar=0"
-          title="Alexander Santos Resume">
-        </iframe>
+      <!-- RESUME — rendered as styled HTML, no iframe -->
+      <div class="resume-section-header">
+        <p class="resume-section-label">📄 Resume / CV</p>
+        <a class="resume-download-btn" href="AlexanderResume.pdf" download>⬇ Download PDF</a>
       </div>
-      <p style="font-size:0.72rem;color:var(--muted2);">
-        Can't see the preview? <a href="AlexanderResume.pdf" target="_blank" style="color:var(--accent);">Open in new tab</a> or <a href="AlexanderResume.pdf" download style="color:var(--accent);">download the PDF</a>.
-      </p>
+
+      <div class="resume-doc">
+        <div class="resume-doc-bar">
+          <div class="doc-dot doc-dot-r"></div>
+          <div class="doc-dot doc-dot-y"></div>
+          <div class="doc-dot doc-dot-g"></div>
+          <span class="doc-bar-name">AlexanderResume.pdf</span>
+        </div>
+
+        <div class="resume-content">
+
+          <!-- Header -->
+          <div class="rv-name">Alexander R. Santos</div>
+          <div class="rv-title">BS Information Technology Student · QA Intern</div>
+          <div class="rv-contacts">
+            <span>✉ alexandersantoswb@gmail.com</span>
+            <span>📞 0918 646 2052</span>
+            <span>📍 114 Lagdameo St., Fortune 4 Parada, Valenzuela City</span>
+            <span>🔗 <a href="https://www.linkedin.com/in/santos-alexander-7a4275336/" target="_blank" style="color:var(--accent);text-decoration:none;">LinkedIn Profile</a></span>
+          </div>
+
+          <!-- Objective -->
+          <div class="rv-section">
+            <div class="rv-section-title">Objective</div>
+            <p style="font-size:0.83rem;color:var(--muted);line-height:1.8;">
+              Seeking an internship opportunity where I can apply my skills in software and web development to contribute to real-world projects, expand my technical expertise, and grow as an IT professional.
+            </p>
+          </div>
+
+          <!-- Skills -->
+          <div class="rv-section">
+            <div class="rv-section-title">Technical Skills</div>
+            <div class="rv-skills-grid">
+              <div class="rv-skill-row">
+                <span class="rv-skill-cat">Programming Languages</span>
+                <span class="rv-skill-val">Java, PHP, C#, JavaScript</span>
+              </div>
+              <div class="rv-skill-row">
+                <span class="rv-skill-cat">Frontend Frameworks</span>
+                <span class="rv-skill-val">React Native, React Native Web</span>
+              </div>
+              <div class="rv-skill-row">
+                <span class="rv-skill-cat">Database &amp; Backend</span>
+                <span class="rv-skill-val">Node.js, MongoDB, MySQL</span>
+              </div>
+              <div class="rv-skill-row">
+                <span class="rv-skill-cat">Game Development</span>
+                <span class="rv-skill-val">Unity</span>
+              </div>
+              <div class="rv-skill-row">
+                <span class="rv-skill-cat">Multimedia</span>
+                <span class="rv-skill-val">Adobe Photoshop, Illustrator, Canva, Filmora</span>
+              </div>
+              <div class="rv-skill-row">
+                <span class="rv-skill-cat">QA &amp; Testing</span>
+                <span class="rv-skill-val">Manual Testing, Bug Reporting, Client Reporting</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Projects / Experience -->
+          <div class="rv-section">
+            <div class="rv-section-title">Projects &amp; Experience</div>
+
+            <div class="rv-entry">
+              <div class="rv-entry-header">
+                <span class="rv-entry-title">PLV EasePass</span>
+                <span class="rv-entry-period">Academic Project</span>
+              </div>
+              <div class="rv-entry-company">React Native · Node.js · MongoDB · Expo</div>
+              <ul class="rv-entry-list">
+                <li>Designed and developed a QR code-based identification system for first-year PLV students.</li>
+                <li>Handled student registration and campus gate access management.</li>
+              </ul>
+            </div>
+
+            <div class="rv-entry">
+              <div class="rv-entry-header">
+                <span class="rv-entry-title">Hidden Aquablitz</span>
+                <span class="rv-entry-period">Academic Project</span>
+              </div>
+              <div class="rv-entry-company">PHP · MySQL · CSS</div>
+              <ul class="rv-entry-list">
+                <li>Developed a Resort Reservation Website with real-time booking management for resort owners.</li>
+              </ul>
+            </div>
+
+            <div class="rv-entry">
+              <div class="rv-entry-header">
+                <span class="rv-entry-title">QA Intern — Bountiply &amp; Redyoos</span>
+                <span class="rv-entry-period">July 2025 – March 2026</span>
+              </div>
+              <div class="rv-entry-company">Solution's Resource Inc. · Quezon City</div>
+              <ul class="rv-entry-list">
+                <li>Performed manual QA testing on Bountiply and Redyoos web platforms.</li>
+                <li>Documented defects and created structured bug reports for development teams.</li>
+                <li>Prepared client-facing reports summarizing test results and findings.</li>
+                <li>Reported daily progress to supervisor Jojo Michael Go.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="rv-section">
+            <div class="rv-section-title">Educational Attainment</div>
+            <div class="rv-edu-entry">
+              <div class="rv-edu-school">Pamantasan ng Lungsod ng Valenzuela</div>
+              <div class="rv-edu-degree">Bachelor of Science in Information Technology</div>
+              <div class="rv-edu-period">August 2022 – 2026, Ongoing</div>
+            </div>
+            <div class="rv-edu-entry">
+              <div class="rv-edu-school">Saint Mary's Angels College of Valenzuela</div>
+              <div class="rv-edu-degree">Senior High School — General Academics Graduate</div>
+              <div class="rv-edu-period">2020 – 2022</div>
+            </div>
+            <div class="rv-edu-entry">
+              <div class="rv-edu-school">Parada National High School — Valenzuela City</div>
+              <div class="rv-edu-degree">High School Graduate</div>
+              <div class="rv-edu-period">2016 – 2020</div>
+            </div>
+          </div>
+
+          <!-- Declaration -->
+          <p class="rv-declaration">
+            I hereby certify that the above statement is true and correct to the best of my knowledge and beliefs.
+          </p>
+
+        </div>
+      </div>
     </div>
 
     <!-- INTERNSHIP -->
@@ -461,7 +635,7 @@
         </div>
       </div>
 
-       <p class="field-label">Company Address</p>
+      <p class="field-label">Company Address</p>
       <div class="address-box">
         <div class="address-map-icon">📍</div>
         <div>
@@ -471,7 +645,7 @@
           </a>
         </div>
       </div>
-      
+
       <p class="field-label">Job Description / Assigned Tasks</p>
       <ul class="tasks-list">
         <li>Quality Assurance Tester</li>
@@ -492,7 +666,6 @@
       </p>
 
       <div class="works-grid">
-
         <div class="work-card">
           <div class="work-thumb">
             <img src="img/668442634_1429040178527414_5752765397797546622_n.jpg" alt="PLV EasePass" />
@@ -548,7 +721,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -621,40 +793,7 @@
     © 2025 Alexander R. Santos &nbsp;·&nbsp; BSIT &nbsp;·&nbsp; Pamantasan ng Lungsod ng Valenzuela &nbsp;·&nbsp; OJT Portfolio
   </footer>
 
-  <!-- RESUME MODAL -->
-  <div class="modal-overlay" id="resumeModal" onclick="closeResumeModal(event)">
-    <div class="modal">
-      <div class="modal-header">
-        <span class="modal-title">AlexanderResume.pdf</span>
-        <div class="modal-actions">
-          <a class="rv-btn rv-btn-primary" href="AlexanderResume.pdf" download>⬇ Download</a>
-          <button class="modal-close" onclick="closeModal()">✕</button>
-        </div>
-      </div>
-      <div class="modal-body">
-        <iframe src="AlexanderResume.pdf" title="Resume Full View"></iframe>
-      </div>
-      <div class="modal-footer">
-        <span class="modal-footer-note">Press Esc or click outside to close</span>
-        <a class="rv-btn" href="AlexanderResume.pdf" target="_blank">Open in Browser ↗</a>
-      </div>
-    </div>
-  </div>
-
   <script>
-    function openResumeModal() {
-      document.getElementById('resumeModal').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeModal() {
-      document.getElementById('resumeModal').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    function closeResumeModal(e) {
-      if (e.target === document.getElementById('resumeModal')) closeModal();
-    }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
     function handleSubmit() {
       const name = document.getElementById('fname').value.trim();
       const email = document.getElementById('femail').value.trim();
